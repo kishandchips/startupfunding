@@ -1,0 +1,216 @@
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+#header{
+
+	a{
+		color: #fff;
+		@include mont;
+		text-decoration: none;
+		text-transform: uppercase;
+		@include transition(all, .3s);
+	}
+
+	nav{
+		overflow: hidden;
+	}
+
+	ul.menu{
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	li.menu-item{
+		float:left;
+
+		a{
+			display: inline-block;
+		}
+	}
+
+}// #header
+
+#header-top{
+	padding: 0.8em 0;
+	background-color: #393939;
+
+	ul.menu{
+		float: right;
+	}
+
+	a{
+		font-size: 0.75em;
+		margin-left: 2em;
+
+		@media screen and (max-width: 1200px){
+			font-size: 0.625em;
+		}
+	}
+
+}// #header-top
+
+#header-main{
+	padding: 1.5em 0 ;
+	background-color: #262523;
+
+	.logo{
+		float:left;
+
+		@media screen and (max-width: 1200px){
+			img{
+				width: 50%;
+			}
+		}
+		@media screen and (max-width: 900px){
+			width: 100%;
+			text-align: center;
+
+			img{
+				max-width: 100%;
+			}
+		}
+	}// .logo
+
+	nav{
+		@extend .valign;
+		right: 0;
+		margin-left: 321px;
+
+		@media screen and (max-width: 1200px){
+			margin-left: 200px;
+		}
+
+		@media screen and (max-width: 900px){
+			position: relative;
+			top:0;
+			@include translateY(0);
+			width: 100%;
+			margin-left: 0;
+			padding-top: 1.5em;
+			text-align: center;
+		}
+
+		@media screen and (max-width: 750px){
+			max-height: 0;
+			padding-top: 0;
+			@include transition(all, .3s);
+
+			#header.visible &{
+				max-height: 500px;
+				padding-top: 1em;
+			}
+		}
+	}// nav
+
+	ul.menu{
+		position: relative;
+
+		@media screen and (max-width: 900px){
+			float: none;
+			display: inline-block;
+		}
+	}
+	
+	li.menu-item{
+		margin-top: 3px;
+		padding:0.8em 2em;
+
+		&:first-child{
+			padding-left: 0;
+		}
+
+		@media screen and (max-width: 750px){
+			float: none;
+			margin: 0;
+			padding:0.7em;
+
+			&:first-child{
+				padding: 0.7em;
+			}
+		}
+
+		a{
+			margin-top: 3px;
+
+			@media screen and (max-width: 1200px){
+				font-size: 0.75em;
+			}
+		}
+
+		&.nav-cta{
+			padding: 0;
+
+			a{
+				margin-top: 0;
+				padding:0.8em 2.2em;
+				border: 3px solid #fff;
+				@include border-radius(5px);
+
+				&:hover{
+					color: #262523;
+					background-color: #fff;
+				}
+			}	
+		}
+	}// .menu-item
+
+	#js-menu{
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding-top: 21%;
+		display: none;
+		color: #fff;
+		font-size: 0.75em;
+		@include mont;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+
+
+		i{
+			display: inline-block;
+			font-size: 1.5em;
+			vertical-align: sub;
+		}
+
+		@media screen and (max-width: 750px){
+			display: inline-block;
+
+
+		}
+	}// #js-menu
+
+}// #header-main
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+#footer{
+	padding: 3em;
+	background-color: #262523;
+
+	.sitemap{
+		ul.menu{
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		li.menu-item{
+			float: left;
+			width: 50%;
+			margin-bottom: 1em;
+
+			a{
+				color: #fff;
+				font-size: 0.75em;
+				@include mont;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

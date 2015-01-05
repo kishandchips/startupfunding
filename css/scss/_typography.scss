@@ -1,0 +1,37 @@
+body{
+	color: #5d5d5d;
+	@include source;
+	-webkit-font-smoothing: antialiased;	
+}
+
+h1,h2,h3,h4,h5,h6{
+	@include roboto;
+}
+
+h1{
+	font-size: 3em;
+}
+
+h2{
+	font-size: 2.25em;
+}
+
+h3,h4,h5,h6{
+	font-size: 1.5em;
+}
+
+.page-heading{
+	color: #fff;
+	font-size: 3em;
+}
+
+.section-heading{
+	color: #04142b;
+	font-size: 2.25em;
+}
+
+.subheading{
+	color: #032940;
+	@include mont;
+	text-transform: uppercase;
+}

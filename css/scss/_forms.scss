@@ -1,0 +1,20 @@
+select{
+	display: inline-block;
+	padding: 1em 3em 1em 1em;
+	color: #adadad;
+	@include mont;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	background-color: #ebebeb;
+	background-image: url(../images/select-arrow.png);
+	background-position: 90% center;
+	background-repeat: no-repeat;
+	border: none;
+    @include appearance(none);
+    outline: none;
+    @include transition(all,.3s);
+
+    &:hover{
+    	background-color: darken(#ebebeb, 5%);
+    }
+}// select

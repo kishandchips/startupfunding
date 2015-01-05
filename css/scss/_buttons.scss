@@ -1,0 +1,54 @@
+.button{
+	display: inline-block;
+	padding: 1em;
+	@include mont;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-decoration: none;
+	@include border-radius(5px);
+	@include transition(all,.3s);
+
+	&.primary{
+		color: #fff;
+		background-color: $orange;
+
+		&:hover{
+			background-color: darken($orange, 10%);
+		}
+	}
+
+	&.invert{
+		color: #fff;
+		background-color: transparent;
+		border: 5px solid #fff;
+	}
+
+	&.large{
+		font-size: 1.2em
+	}
+	&.small{
+		font-size: 0.8em
+	}
+}// .button
+
+.btn{
+	padding: 0;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.underline{
+	padding-bottom: 5px;
+	color: #d0d0d0;
+	@include mont;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-bottom: 5px solid #ccc;
+	@include transition(all,.3s);
+
+	&:hover{
+		color: darken(#d0d0d0, 10%);
+		border-color: darken(#ccc, 10%);
+	}
+}
