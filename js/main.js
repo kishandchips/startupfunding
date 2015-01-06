@@ -37,15 +37,24 @@
 
 		},// main.header
 
-		// slider: {
-		// 	element: $('.flexslider'),
+		slider: {
+			element: $('.slider'),
 
-		// 	init: function(){
-		// 		var element = main.slider.element;
-		// 		if(!element.length){return;}
+			init: function(){
+				var element = main.slider.element;
+				if(!element.length){return;}
 
-		// 	}
-		// },// main.slider
+				element.owlCarousel({
+				    items: 1,
+				    loop: true,
+				    nav: true,
+				    navText: [],
+				    navSpeed: 1000,
+				    dots: true,
+				    autoHeight: true,
+				})
+			}
+		},// main.slider
 
 	};//main
 

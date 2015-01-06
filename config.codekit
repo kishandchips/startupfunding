@@ -20,6 +20,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/content-pageheader.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/content-pageheader.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/css\/editor-style.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -166,6 +175,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/css\/scss\/_owl.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/scss\/_owl.scss",
+		"outputAbbreviatedPath": "\/css\/_owl.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/css\/scss\/_templates.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -239,6 +264,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/front-page.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/front-page.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/functions.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -257,6 +291,39 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/assessment-advisory.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3411,
+		"inputAbbreviatedPath": "\/images\/assessment-advisory.png",
+		"outputAbbreviatedPath": "\/images\/assessment-advisory.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/investment-assistance.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1688,
+		"inputAbbreviatedPath": "\/images\/investment-assistance.png",
+		"outputAbbreviatedPath": "\/images\/investment-assistance.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/logo-symbol.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 433,
+		"inputAbbreviatedPath": "\/images\/logo-symbol.png",
+		"outputAbbreviatedPath": "\/images\/logo-symbol.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/logo.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -264,6 +331,28 @@
 		"initialSize": 1921,
 		"inputAbbreviatedPath": "\/images\/logo.png",
 		"outputAbbreviatedPath": "\/images\/logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/pitching-investment.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1322,
+		"inputAbbreviatedPath": "\/images\/pitching-investment.png",
+		"outputAbbreviatedPath": "\/images\/pitching-investment.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/post-support.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1989,
+		"inputAbbreviatedPath": "\/images\/post-support.png",
+		"outputAbbreviatedPath": "\/images\/post-support.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -310,12 +399,23 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/vendor\/modernizr-2.6.1.min.js": {
+	"\/js\/plugins\/modernizr-2.6.1.min.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/vendor\/modernizr-2.6.1.min.js",
-		"outputAbbreviatedPath": "\/js\/vendor\/min\/modernizr-2.6.1.min-min.js",
+		"inputAbbreviatedPath": "\/js\/plugins\/modernizr-2.6.1.min.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/modernizr-2.6.1.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/plugins\/owl.carousel.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/plugins\/owl.carousel.min.js",
+		"outputAbbreviatedPath": "\/js\/plugins\/min\/owl.carousel.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -355,6 +455,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/style.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/template-about.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/template-about.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

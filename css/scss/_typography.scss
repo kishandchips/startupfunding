@@ -21,11 +21,15 @@ h3,h4,h5,h6{
 }
 
 .page-heading{
+	max-width: 850px;
+	margin-top: 0;
 	color: #fff;
 	font-size: 3em;
+	line-height: 1.2;
 }
 
 .section-heading{
+	margin: 0;
 	color: #04142b;
 	font-size: 2.25em;
 }
@@ -33,5 +37,6 @@ h3,h4,h5,h6{
 .subheading{
 	color: #032940;
 	@include mont;
+	font-size: 1.125em;
 	text-transform: uppercase;
 }

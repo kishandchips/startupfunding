@@ -185,12 +185,162 @@
 }// #header-main
 
 /* ==========================================================================
+   PAGES
+   ========================================================================== */
+
+.page-header{
+	padding: 4em 0;
+
+	&.bg{
+		background-size: cover;
+		background-position: center;
+	}
+
+	&.black{
+		background-color: $black
+	}
+	&.orange{
+		background-color: $orange
+	}
+	&.blue{
+		background-color: $blue
+	}
+	&.red{
+		background-color: $red
+	}
+	&.green{
+		background-color: $green
+	}
+	&.purple{
+		background-color: $purple
+	}
+	&.darkblue{
+		background-color: $dblue
+	}
+}// .page-header
+
+.section{
+	padding: 3em 0;
+
+	.inner-container{
+		width: 90%;
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+
+		.button{
+			margin:1em 0;
+		}
+	}
+}// .section
+
+.cta{
+	h3{
+		margin: 0 0 0.5em 0;
+		color: $dblue;
+		font-size: 1.85em;
+	}
+
+	.button{
+		padding: 1em 2.5em;
+	}
+}// .cta
+
+/* ==========================================================================
+   SLIDER
+   ========================================================================== */
+
+.slider{
+	margin-top: 1em;
+
+	.slide-title{
+		margin: 0 0 0.5em 0;
+		color: $dblue;
+	}
+
+	.slide-image{
+		margin: 2em 0 1em 0;
+	}
+
+	.owl-nav{
+		@extend .valign;
+		width: 100%;
+
+		.owl-prev,.owl-next{
+			@extend .valign;
+			@extend %icon;
+			color: #d7d7d7;
+			font-size: 3em;
+			@include transition(all,.3s);
+
+			&:hover{
+				color: initial;
+			}
+		}
+		
+		.owl-prev{
+			&:after{
+				content: "\e605";
+			}
+		}
+
+		.owl-next{
+			right: 0;
+
+			&:after{
+				content: "\e606";	
+			}
+		}
+	}// .owl-nav
+
+	.owl-dots{
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		text-align: center;
+
+		.owl-dot{
+			display: inline-block;
+			height: 10px;
+			width: 100px;
+			margin-left: 10px;
+			background-color: #d7d6d6;
+			@include transition(all,.3s);
+
+			&:first-child{
+				margin-left: 0;
+			}
+
+			&:hover, &.active{
+				background-color: $orange;				
+			}
+		}
+		
+	}// .owl-dots
+
+}// .slider
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 
 #footer{
-	padding: 3em;
+	padding: 3em 0;
 	background-color: #262523;
+
+	@media screen and (max-width: 500px){
+		padding: 1.5em 0;
+	}
+
+	.logo{
+		@media screen and (max-width: 500px){
+			width: 10%;
+		}
+		@media screen and (max-width: 400px){
+			margin:0 0 1em 45%;
+		}
+	}
 
 	.sitemap{
 		ul.menu{
@@ -212,5 +362,64 @@
 				text-transform: uppercase;
 			}
 		}
-	}
-}
+
+		@media screen and (max-width: 700px){
+			width: 80%;
+			margin-bottom: 1em;
+		}
+
+		@media screen and (max-width: 550px){
+			display: none;
+		}
+	}// .sitemap
+
+	.footer-info{
+		color:#fff;
+		
+		a{
+			color: #fff;
+			text-decoration: none;
+			@include transition(all, .3s);
+		}
+
+		.address{
+			p{
+				margin-top: 0;
+				line-height: 1.7;
+			}
+
+			a{
+				padding-bottom: 3px;
+				border-bottom: 1px dotted rgba(#fff,0.7);
+
+				&:hover{
+					border-bottom: 1px dotted #fff;
+				}
+			}
+		}
+
+		.social{
+			font-size: 1.5em;
+
+			a{
+				margin-left: 0.5em;
+
+				&:hover{
+					color: darken(#fff,40%);
+				}
+
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+		}
+
+		@media screen and (max-width: 500px){
+			width: 90%;
+		}
+		@media screen and (max-width: 400px){
+			width: 100%;
+		}
+	}// .footer-info
+	
+}// #footer

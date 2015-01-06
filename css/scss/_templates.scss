@@ -1,3 +1,44 @@
 /* ==========================================================================
    PAGE SPECIFIC STYLES
    ========================================================================== */
+
+#about{
+	.page-header{
+		min-height: 400px;
+	}
+
+	.section{
+		.number{
+			display: inline-block;
+			margin-bottom: 0.3em;
+			padding-bottom: 5px;
+			@include roboto;
+			font-size: 2.5em;
+			line-height: 1;
+			border-bottom: 8px solid #ccc;
+		}
+
+		.subheading{
+			margin-bottom: 2em;
+		}
+
+		figure{
+			margin-top: 3em;
+			margin-bottom: -3em;
+		}
+
+		&:nth-of-type(2n){
+			@extend .alt-section;
+		}	
+	}
+}// #about
+
+#startups{
+
+}// #startups
+
+#single-startup{
+	header.section{
+		text-align: center;
+	}
+}// #single-startup
