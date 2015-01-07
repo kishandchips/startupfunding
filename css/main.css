@@ -375,11 +375,6 @@ hr {
   border-color: #ebebeb; }
 
 /* COLOURS */
-.alt-section, #about .section:nth-of-type(2n) {
-  background-color: #fbfbfe;
-  border-top: 1px solid #ebebea;
-  border-bottom: 1px solid #ebebea; }
-
 /* ICON */
 .slider .owl-nav .owl-prev, .slider .owl-nav .owl-next {
   display: inline-block;
@@ -432,6 +427,20 @@ iframe,
 object,
 video {
   max-width: 100%; }
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto; }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 .wp-caption {
   /*background: #fff;*/
@@ -899,6 +908,11 @@ select {
     .section .inner-container .button {
       margin: 1em 0; }
 
+.alt-section, #about .section:nth-of-type(2n) {
+  background-color: #fbfbfe;
+  border-top: 1px solid #ebebea;
+  border-bottom: 1px solid #ebebea; }
+
 .cta h3 {
   margin: 0 0 0.5em 0;
   color: #032940;
@@ -1026,6 +1040,9 @@ select {
 /* ==========================================================================
    PAGE SPECIFIC STYLES
    ========================================================================== */
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
 #about .page-header {
   min-height: 400px; }
 #about .section .number {
@@ -1043,5 +1060,21 @@ select {
   margin-top: 3em;
   margin-bottom: -3em; }
 
-#single-startup header.section {
+/* ==========================================================================
+   STARTUPS
+   ========================================================================== */
+/* ==========================================================================
+   SINGLE STARTUP
+   ========================================================================== */
+#single-startup header {
   text-align: center; }
+#single-startup .images .image {
+  padding-top: 30%;
+  background-size: cover;
+  background-position: center; }
+#single-startup .description .subheading {
+  display: inline-block;
+  margin-top: 1em; }
+#single-startup .video .embed-container {
+  max-width: 640px;
+  margin: 0 auto; }

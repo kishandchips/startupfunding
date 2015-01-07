@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div id="single-startup">
+	<div id="single-startup" class="rows">
 		
 		<header class="section">
 			<?php the_post_thumbnail(); ?>
@@ -10,7 +10,7 @@
 
 			<section class="section alt-section">
 				<div class="inner-container">
-					<h2>
+					<h2 class="section-heading">
 						<?php the_title(); ?>
 					</h2>
 					<?php the_content(); ?>					
@@ -24,11 +24,12 @@
 					switch($layout):
 					case 'image_content':
 				?>
-					<section class="section">
+					<section class="images clearfix">
 						<?php $image_number = count(get_sub_field('images')) ?>
 						<?php $size = ($image_number == 1 ? 'full' : 'column col-1-2'); ?>
 						<?php if(have_rows('images')): while(have_rows('images')): the_row(); ?>
-							<div class="image <?php echo $size ?>"></div>
+							<?php $image = get_sub_field('image') ?>
+							<div class="image <?php echo $size ?>" style="background-image:url('<?php echo $image['url'] ?>')"></div>
 						<?php endwhile;endif; ?>
 					</section>
 				<?php 
@@ -36,31 +37,23 @@
 
 					case 'information':
 				?>
-					<section class="section">
-						<?php $image_number = count(get_sub_field('images')) ?>
-						<?php $size = ($image_number == 1 ? 'full' : 'column col-1-2'); ?>
-						<?php if(have_rows('images')): while(have_rows('images')): the_row(); ?>
-							<div class="image <?php echo $size ?>"></div>
-						<?php endwhile;endif; ?>
+					<section class="description section">
+						<div class="inner-container">
+							<?php the_sub_field('text_content') ?>	
+						</div>
 					</section>
 				<?php 
 					break;
 
 					case 'video_content':
 				?>
-					<section class="section">
-						<?php $image_number = count(get_sub_field('images')) ?>
-						<?php $size = ($image_number == 1 ? 'full' : 'column col-1-2'); ?>
-						<?php if(have_rows('images')): while(have_rows('images')): the_row(); ?>
-							<div class="image <?php echo $size ?>"></div>
-						<?php endwhile;endif; ?>
-					</section>
-									<section class="section">
-						<?php $image_number = count(get_sub_field('images')) ?>
-						<?php $size = ($image_number == 1 ? 'full' : 'column col-1-2'); ?>
-						<?php if(have_rows('images')): while(have_rows('images')): the_row(); ?>
-							<div class="image <?php echo $size ?>"></div>
-						<?php endwhile;endif; ?>
+					
+					<section class="video section">
+						<div class="inner-container">
+							<div class="embed-container">
+								<?php the_sub_field('video') ?>	
+							</div>							
+						</div>
 					</section>
 				<?php 
 					break;
