@@ -12,7 +12,7 @@
 
 			this.header.init();
 			this.slider.init();
-
+			this.isotope.init();
 
 			main.w.on('load', function(){
 
@@ -55,6 +55,25 @@
 				})
 			}
 		},// main.slider
+
+		isotope: {
+			element: $('#posts'),
+
+			init: function(){
+				var element = main.isotope.element;
+				if(!element.length){return;}
+
+				element.isotope({
+				  itemSelector: 'article',
+				  layoutMode: 'fitRows'
+				});
+
+				$('#filters select').on('change', function() {
+					var filterValue = $(this).val();
+				  element.isotope({ filter: filterValue });
+				});
+			}
+		}// main.isotope
 
 	};//main
 

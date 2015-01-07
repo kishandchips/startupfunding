@@ -1,4 +1,4 @@
-select{
+%greyinput{
 	display: inline-block;
 	padding: 1em 3em 1em 1em;
 	color: #adadad;
@@ -6,15 +6,44 @@ select{
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	background-color: #ebebeb;
-	background-image: url(../images/select-arrow.png);
-	background-position: 90% center;
-	background-repeat: no-repeat;
 	border: none;
+	@include border-radius(0);
     @include appearance(none);
     outline: none;
     @include transition(all,.3s);
-
+    
     &:hover{
     	background-color: darken(#ebebeb, 5%);
     }
+}
+
+select{
+	@extend %greyinput;
+	background-image: url(../images/select-arrow.png);
+	background-position: 90% center;
+	background-repeat: no-repeat;
 }// select
+
+
+#searchform{
+	position: relative;
+	display: inline-block;
+
+	input[type="text"]{
+		width: 100%;
+		max-width: 275px;
+		@extend %greyinput;
+		padding-right: 50px;	
+	}
+
+	input[type="submit"]{
+		@extend .btn;
+		position: absolute;
+		top:0;
+		right: 10px;
+		margin-top: 9px;
+		padding: 5px;
+		color: #adadad;
+		font-size: 1.5em;
+	}
+}// #search-form

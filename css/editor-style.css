@@ -1,12 +1,156 @@
+/* ==================== 
+    BASE
+   ==================== */
+html, body {
+  min-height: 100% !important;
+  height: 100%; }
+
+body {
+  font-size: 1em;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; }
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+.invisible {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  visibility: hidden; }
+
+.visible {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  visibility: visible; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.valign {
+  position: absolute;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+/* MISC */
+hr {
+  border-top: none;
+  border-color: #ebebeb; }
+
+/* COLOURS */
+/* ICON */
+a.arrow:after {
+  display: inline-block;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* WORDPRESS IMAGE */
+.alignleft {
+  float: left;
+  margin-top: 1em;
+  margin-right: 2em;
+  margin-bottom: 1em; }
+
+.alignright {
+  float: right;
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-bottom: 1em; }
+
+.aligncenter {
+  display: block;
+  margin: 2em auto; }
+
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+  border: 1px solid #ddd; }
+
+img.size-full,
+img.size-large,
+img.header-image,
+img.wp-post-image {
+  max-width: 100%;
+  height: auto;
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */ }
+
+/* Make sure videos and embeds fit their containers */
+embed,
+iframe,
+object,
+video {
+  max-width: 100%; }
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto; }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.wp-caption {
+  /*background: #fff;*/
+  /*border: 1px solid #f0f0f0;*/
+  max-width: 96%;
+  /* Image does not overflow the content area */
+  /*padding: 5px 3px 10px;*/
+  /*text-align: center;*/ }
+
+.wp-caption-text {
+  margin-bottom: 0;
+  padding: 0 0.5em;
+  color: #333;
+  font-size: 0.75em;
+  font-style: italic;
+  line-height: 1.1; }
+
 body {
   color: #5d5d5d;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
+  letter-spacing: 0.5px;
   -webkit-font-smoothing: antialiased; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1.5; }
 
 h1 {
   font-size: 3em; }
@@ -17,21 +161,51 @@ h2 {
 h3, h4, h5, h6 {
   font-size: 1.5em; }
 
+.med-font {
+  font-size: 1.125em; }
+
+a {
+  color: #032940;
+  text-decoration: none;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s; }
+  a:hover {
+    color: #054871; }
+
+a.arrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.75em;
+  text-transform: uppercase; }
+  a.arrow:after {
+    display: inline-block;
+    content: "\e606";
+    font-size: 0.5em;
+    margin-top: -1px;
+    margin-left: 5px; }
+
 .page-heading {
   max-width: 850px;
-  margin-top: 0;
+  margin: 0;
   color: #fff;
   font-size: 3em;
   line-height: 1.2; }
+  @media screen and (max-width: 600px) {
+    .page-heading {
+      font-size: 2.25em; } }
 
 .section-heading {
   margin: 0;
   color: #04142b;
-  font-size: 2.25em; }
+  font-size: 2.25em;
+  line-height: 1; }
 
 .subheading {
   color: #032940;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.125em;
+  line-height: 1.2;
   text-transform: uppercase; }

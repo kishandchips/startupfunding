@@ -1,3 +1,10 @@
+.btn{
+	padding: 0;
+	background: none;
+	border: none;
+	outline: none;
+}
+
 .button{
 	display: inline-block;
 	padding: 1em;
@@ -38,13 +45,6 @@
 	}
 }// .button
 
-.btn{
-	padding: 0;
-	background: none;
-	border: none;
-	outline: none;
-}
-
 .underline{
 	padding-bottom: 5px;
 	color: #d0d0d0;
@@ -58,4 +58,25 @@
 		color: darken(#d0d0d0, 10%);
 		border-color: darken(#ccc, 10%);
 	}
-}
+}// .underline
+
+.infinite{
+	color: #76818b;
+	@include transition(all,.3s);
+	
+	&:hover{
+		color: darken(#76818b, 10%);
+	}
+	
+	span{
+		@include mont;
+		font-size: 0.875em;
+		text-transform: uppercase;
+	}
+
+	i{
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 0.5em;
+	}
+}// .infinite

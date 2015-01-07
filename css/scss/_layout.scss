@@ -7,9 +7,7 @@
 	a{
 		color: #fff;
 		@include mont;
-		text-decoration: none;
 		text-transform: uppercase;
-		@include transition(all, .3s);
 	}
 
 	nav{
@@ -41,9 +39,9 @@
 	}
 
 	a{
-		font-size: 0.75em;
 		margin-left: 2em;
-
+		font-size: 0.75em;
+		
 		@media screen and (max-width: 1200px){
 			font-size: 0.625em;
 		}
@@ -217,6 +215,11 @@
 	&.darkblue{
 		background-color: $dblue
 	}
+
+	.button{
+		margin-top: 2em;
+	}
+
 }// .page-header
 
 .section{
@@ -232,6 +235,7 @@
 			margin:1em 0;
 		}
 	}
+
 }// .section
 
 .alt-section{
@@ -241,6 +245,8 @@
 }
 
 .cta{
+	background-color: #fff !important;
+
 	h3{
 		margin: 0 0 0.5em 0;
 		color: $dblue;
@@ -250,6 +256,7 @@
 	.button{
 		padding: 1em 2.5em;
 	}
+
 }// .cta
 
 
@@ -365,7 +372,6 @@
 				color: #fff;
 				font-size: 0.75em;
 				@include mont;
-				text-decoration: none;
 				text-transform: uppercase;
 			}
 		}
@@ -385,8 +391,6 @@
 		
 		a{
 			color: #fff;
-			text-decoration: none;
-			@include transition(all, .3s);
 		}
 
 		.address{

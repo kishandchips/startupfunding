@@ -1,5 +1,5 @@
 <?php
-define('THEME_NAME', 'StartupFunding');
+define('THEME_NAME', 'startup');
 $template_directory_uri = get_template_directory_uri();
 
 // Remove unnecessary code
@@ -41,6 +41,7 @@ function custom_scripts(){
 	
 	wp_enqueue_script('modernizr', $template_directory_uri . '/js/plugins/modernizr-2.6.1.min.js', array('jquery'), '', true);
 	wp_enqueue_script('slider', $template_directory_uri . '/js/plugins/owl.carousel.min.js', array('jquery'), '', true);
+	wp_enqueue_script('isotope', $template_directory_uri . '/js/plugins/isotope.min.js', array('jquery'), '', true);
 	wp_enqueue_script('main', $template_directory_uri . '/js/main.js', array('jquery'), '', true);
 }
 
@@ -49,11 +50,12 @@ function custom_scripts(){
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
 	add_action( 'init', 'create_post_type' );
 	add_action( 'init', 'startup_category' );
+	add_action( 'widgets_init', 'my_sidebars' );
 
 // Add Options Page
 	if( function_exists('acf_add_options_page') ) acf_add_options_page();
 
-// Custom Post Type
+// Register Custom Post Types
 function create_post_type() {
 	register_post_type( 'startup',
 		array(
@@ -74,7 +76,30 @@ function create_post_type() {
 			)
 		)
 	);
+
+	register_post_type( 'resources',
+		array(
+			'labels' => array(
+				'name' => __( 'Resources' ),
+				'singular_name' => __( 'Resource' ),
+				'add_new' => __('Add Resource'),
+				'search_items' => __('Search Resources'),
+				'not_found' => __('No Resources Found')
+			),
+		'public' => true,
+		'menu_position' => 5,
+		'hierarchical' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'page-attributes'
+			)
+		)
+	);
 }
+
 // Register Taxonomy
 function startup_category() {
 
@@ -110,4 +135,23 @@ function startup_category() {
 	);
 
 	register_taxonomy( 'startup-category', array( 'startup' ), $args );
+}
+
+// Register Sidebars
+
+function my_sidebars() {
+	/* Register the 'primary' sidebar. */
+	register_sidebar(
+		array(
+			'id' => 'social',
+			'name' => __( 'Social' ),
+			'description' => __( 'Twitter' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+
+	require(get_template_directory().'/inc/widgets/twitter/feed.php');
 }

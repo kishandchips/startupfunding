@@ -22,7 +22,9 @@
 						<?php the_sub_field('service_heading') ?>
 					</h2>
 					
-					<?php the_sub_field('service_description') ?>
+					<div class="med-font">
+						<?php the_sub_field('service_description') ?>	
+					</div>
 
 					<?php if(get_sub_field('service_illustration')): ?>
 					<figure>

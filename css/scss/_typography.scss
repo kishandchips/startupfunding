@@ -1,11 +1,13 @@
 body{
 	color: #5d5d5d;
 	@include source;
-	-webkit-font-smoothing: antialiased;	
+	letter-spacing: 0.5px;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1,h2,h3,h4,h5,h6{
 	@include roboto;
+	line-height: 1.5;
 }
 
 h1{
@@ -20,23 +22,58 @@ h3,h4,h5,h6{
 	font-size: 1.5em;
 }
 
+.med-font{
+	font-size: 1.125em;
+}
+
+a{
+	color: #032940;
+	text-decoration: none;
+	@include transition(all, .3s);
+
+	&:hover{
+		color: lighten(#032940, 10%);
+	}
+}
+
+a.arrow{
+	@include mont;
+	font-size: 0.75em;
+	text-transform: uppercase;
+
+	&:after{
+		display: inline-block;
+		@extend %icon;
+		content:"\e606";
+		font-size: 0.5em;
+		margin-top: -1px;
+		margin-left: 5px;
+	}
+}
+
 .page-heading{
 	max-width: 850px;
-	margin-top: 0;
+	margin: 0;
 	color: #fff;
 	font-size: 3em;
 	line-height: 1.2;
+
+	@media screen and (max-width: 600px){
+		font-size: 2.25em;
+	}
 }
 
 .section-heading{
 	margin: 0;
 	color: #04142b;
 	font-size: 2.25em;
+	line-height: 1;
 }
 
 .subheading{
 	color: #032940;
 	@include mont;
 	font-size: 1.125em;
+	line-height: 1.2;
 	text-transform: uppercase;
 }

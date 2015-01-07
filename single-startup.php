@@ -1,19 +1,21 @@
 <?php get_header(); ?>
 
-	<div id="single-startup" class="rows">
+	<div id="single-startup">
 		
 		<header class="section">
-			<?php the_post_thumbnail(); ?>
+			<div class="inner-container">
+				<?php the_post_thumbnail(); ?>	
+			</div>
 		</header><!-- .section -->
 		
 		<?php if(have_posts()): while(have_posts()): the_post(); ?>
 
-			<section class="section alt-section">
+			<section class="section">
 				<div class="inner-container">
 					<h2 class="section-heading">
 						<?php the_title(); ?>
 					</h2>
-					<?php the_content(); ?>					
+					<?php the_content(); ?>			
 				</div>
 			</section><!-- .section -->
 			
@@ -24,7 +26,7 @@
 					switch($layout):
 					case 'image_content':
 				?>
-					<section class="images clearfix">
+					<section class="images section clearfix">
 						<?php $image_number = count(get_sub_field('images')) ?>
 						<?php $size = ($image_number == 1 ? 'full' : 'column col-1-2'); ?>
 						<?php if(have_rows('images')): while(have_rows('images')): the_row(); ?>

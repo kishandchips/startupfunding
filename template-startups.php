@@ -30,9 +30,9 @@
 			</div>
 		</section><!-- .section -->
 		
-		<section class="startups-list section">
+		<section id="startups-list" class="section">
 			
-		</section><!-- .section -->
+		</section><!-- #startups-list -->
 
 	</div><!-- #startups -->
 
