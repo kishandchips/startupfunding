@@ -29,14 +29,14 @@ select{
 	position: relative;
 	display: inline-block;
 
-	input[type="text"]{
+	#search-input{
 		width: 100%;
 		max-width: 275px;
 		@extend %greyinput;
 		padding-right: 50px;	
 	}
 
-	input[type="submit"]{
+	#search-submit{
 		@extend .btn;
 		position: absolute;
 		top:0;

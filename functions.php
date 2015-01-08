@@ -22,8 +22,15 @@ $template_directory_uri = get_template_directory_uri();
 // Image sizes
 	add_image_size( 'slider', 600, 9999, false );
 
-// Functions
+// Add Actions
+	add_action( 'wp_enqueue_scripts', 'custom_styles', 30 );
+	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
+	add_action( 'init', 'create_post_type' );
+	add_action( 'init', 'startup_category' );
+	add_action( 'widgets_init', 'my_sidebars' );
+	add_action( 'pre_get_posts', 'custom_posts_per_page' );
 
+// Functions
 function custom_styles(){
 	global $template_directory_uri;
 
@@ -44,13 +51,6 @@ function custom_scripts(){
 	wp_enqueue_script('isotope', $template_directory_uri . '/js/plugins/isotope.min.js', array('jquery'), '', true);
 	wp_enqueue_script('main', $template_directory_uri . '/js/main.js', array('jquery'), '', true);
 }
-
-// Add Actions
-	add_action( 'wp_enqueue_scripts', 'custom_styles', 30 );
-	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
-	add_action( 'init', 'create_post_type' );
-	add_action( 'init', 'startup_category' );
-	add_action( 'widgets_init', 'my_sidebars' );
 
 // Add Options Page
 	if( function_exists('acf_add_options_page') ) acf_add_options_page();
@@ -87,6 +87,7 @@ function create_post_type() {
 				'not_found' => __('No Resources Found')
 			),
 		'public' => true,
+		'has_archive' => true,
 		'menu_position' => 5,
 		'hierarchical' => true,
 		'supports' => array(
@@ -98,6 +99,8 @@ function create_post_type() {
 			)
 		)
 	);
+
+	flush_rewrite_rules( false );
 }
 
 // Register Taxonomy
@@ -138,7 +141,6 @@ function startup_category() {
 }
 
 // Register Sidebars
-
 function my_sidebars() {
 	/* Register the 'primary' sidebar. */
 	register_sidebar(
@@ -154,4 +156,15 @@ function my_sidebars() {
 	);
 
 	require(get_template_directory().'/inc/widgets/twitter/feed.php');
+}
+
+// Posts per page
+function custom_posts_per_page($query){
+	if( $query->is_category() OR $query->is_search() OR is_post_type_archive('resources') ){
+		$query->set('posts_per_page', 1);
+	}
+
+	if( $query->is_search() ){
+		$query->set('post_type', 'post');
+	}
 }

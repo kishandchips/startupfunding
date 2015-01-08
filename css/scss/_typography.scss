@@ -36,19 +36,37 @@ a{
 	}
 }
 
-a.arrow{
+
+%arrow-links{
 	@include mont;
 	font-size: 0.75em;
 	text-transform: uppercase;
 
-	&:after{
+	&:after,&:before{
 		display: inline-block;
-		@extend %icon;
-		content:"\e606";
+		@extend %icon;			
 		font-size: 0.5em;
 		margin-top: -1px;
+
+	}	
+}
+
+a.arrow-right{
+	@extend %arrow-links;
+
+	&:after{
+		content:"\e606";
 		margin-left: 5px;
-	}
+	}	
+}
+
+a.arrow-left{
+	@extend %arrow-links;
+	
+	&:before{
+		content:"\e605";
+		margin-right: 5px;
+	}	
 }
 
 .page-heading{
@@ -76,4 +94,14 @@ a.arrow{
 	font-size: 1.125em;
 	line-height: 1.2;
 	text-transform: uppercase;
+}
+
+.number{
+	display: inline-block;
+	margin-bottom: 0.3em;
+	padding-bottom: 5px;
+	@include roboto;
+	font-size: 2.5em;
+	line-height: 1;
+	border-bottom: 8px solid #ccc;
 }

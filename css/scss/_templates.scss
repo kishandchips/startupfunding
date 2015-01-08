@@ -12,15 +12,6 @@
 	}
 
 	.section{
-		.number{
-			display: inline-block;
-			margin-bottom: 0.3em;
-			padding-bottom: 5px;
-			@include roboto;
-			font-size: 2.5em;
-			line-height: 1;
-			border-bottom: 8px solid #ccc;
-		}
 
 		.subheading{
 			margin-bottom: 2em;
@@ -39,272 +30,315 @@
 }// #about
 
 /* ==========================================================================
-   CLUBROOM
+   CLUBROOM & ARCHIVE
    ========================================================================== */
 
-#clubroom{
+#article-filters{
+	border-bottom: 1px solid #ebebeb;
+	
+	select{
+		margin-right: 20px;
+	}
+	.search{
+		display: inline-block;
 
-	// used for articles and resources styling
-	%gridstyle{
-		padding: 40px 30px;
-		border: 1px solid #ebebeb;
-		border-bottom: none;
+		@media screen and (max-width: 600px){
+			display: block;
+			margin: 20px 0 0 0;
+		}
+	}
+}// #filters
+
+// used for articles and resources styling
+%gridstyle{
+	padding: 40px 30px;
+	border: 1px solid #ebebeb;
+	border-bottom: none;
+}
+
+#article-list{
+	.row{
+		margin:0 -20px;
+
+		@media screen and (max-width: 1000px){
+			margin:0 -10px;
+		}
+	}
+	
+	.section-heading{
+		margin-bottom: 1em;
 	}
 
 	article{
 		margin-bottom: 40px;
 		padding: 0 20px;
 
+		@media screen and (min-width: 1000px){
+			&:nth-child(3n+1){
+				clear: left;
+			}
+		}
+
 		@media screen and (max-width: 1000px){
 			margin-bottom: 20px;
 			padding: 0 10px;
 			font-size: 80%;
 		}
+
+		@media screen and (max-width: 750px){
+			width: 50%;
+			&:nth-child(2n+1){
+				clear: left;
+			}
+		}
+
 		@media screen and (max-width: 600px){
 			font-size: 70%;
 		}
 
+		@media screen and (max-width: 500px){
+			width: 100%;
+		}
+
 		.inner{
+			@extend %gridstyle;
+			position: relative;
+			min-height: 450px;
 			background-color: #fff;
 			@include transition(all, .3s);
 
 			&:hover{
 				background-color: darken(#fff, 2%);
-			}			
-		}
-
-		.title{
-			font-size: 1.75em;
-		}
-	}
-
-	#filters{
-		border-bottom: 1px solid #ebebeb;
-
-		.search{
-			display: inline-block;
-			margin-left: 20px;
-
-			@media screen and (max-width: 600px){
-				display: block;
-				margin: 20px 0 0 0;
-			}
-		}
-	}// #filters
-
-	#articles{
-		.row{
-			margin:0 -20px;
+			}	
 
 			@media screen and (max-width: 1000px){
-				margin:0 -10px;
-			}
-		}
-		
-		.section-heading{
-			margin-bottom: 1em;
-		}
-
-		article{
-
-			@media screen and (min-width: 1000px){
-				&:nth-child(3n+1){
-					clear: left;
-				}
-			}
-
-			@media screen and (max-width: 750px){
-				width: 50%;
-				&:nth-child(2n+1){
-					clear: left;
-				}
+				min-height: 350px;
 			}
 
 			@media screen and (max-width: 500px){
-				width: 100%;
+				min-height: initial;
+			}
+		}
+
+		.category{
+			display: inline-block;
+
+			ul{
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
 			}
 
-			.inner{
-				@extend %gridstyle;
-				position: relative;
-				min-height: 450px;
-
-				@media screen and (max-width: 1000px){
-					min-height: 350px;
-				}
-
-				@media screen and (max-width: 500px){
-					min-height: initial;
-				}
-			}
-
-			.category{
+			li{
 				display: inline-block;
-
-				ul{
-					margin: 0;
-					padding: 0;
-					list-style-type: none;
-				}
-
-				li{
-					display: inline-block;
-				}
-
-				a{
-					display: inline-block;
-					padding-bottom: 5px;
-					@include mont;
-					font-size: 0.875em;
-					letter-spacing: 0.5px;
-					text-transform: uppercase;
-				}
 			}
 
-			&.news{
-				.inner{
-					box-shadow:0 5px 0 0 $orange;
-				}
-
-				.category{
-					border-bottom: 8px solid $orange;
-				}
-			}
-
-			&.marketing{
-				.inner{
-					box-shadow:0 5px 0 0 $red;
-				}
-
-				.category{
-					border-bottom: 8px solid $red;		
-				}
-			}
-
-			&.finances{
-				.inner{
-					box-shadow:0 5px 0 0 $purple;
-				}
-				.category{
-					border-bottom: 8px solid $purple;	
-				}
-			}
-
-			&.startup-spotlight{
-				.inner{
-					box-shadow:0 5px 0 0 $green;
-				}
-				.category{
-					border-bottom: 8px solid $green;	
-				}
-			}
-
-			.date{
-				position: absolute;
-				bottom: 40px;
-				left:30px;
+			a{
+				display: inline-block;
+				padding-bottom: 5px;
 				@include mont;
 				font-size: 0.875em;
 				letter-spacing: 0.5px;
 				text-transform: uppercase;
 			}
-		}// .article
-
-	}// #articles
-
-	#resources{
-
-		.section-heading{
-			margin-bottom: 1em;
 		}
 
-		.container{
-			margin-top: 3em;
+		.title{
+			font-size: 1.75em;
 		}
 
-		.row{
-			margin:0 -20px;
-
-			@media screen and (max-width: 1000px){
-				margin:0 -10px;
-			}
-		}
-
-		article{
-			@media screen and (min-width: 1000px){
-				&:nth-child(2n+1){
-					clear: left;
-				}
-			}
-			@media screen and (max-width: 750px){
-				width: 100%;
-				font-size: 100%;
-			}
-
+		&.news{
 			.inner{
-				@extend %gridstyle;
-				box-shadow:0 7px 0 0 $orange;
+				box-shadow:0 5px 0 0 $orange;
 			}
 
-			.title{
-				display: inline-block;
-				margin-top: 0;
-				padding-bottom: 3px;
+			.category{
 				border-bottom: 8px solid $orange;
 			}
-
-			.excerpt{
-				font-size: 0.875em;
-
-				p:first-child{
-					margin-top: 0;
-				}
-			}		
 		}
 
-	}// #resources
+		&.marketing{
+			.inner{
+				box-shadow:0 5px 0 0 $red;
+			}
 
-	#tweet{
-		ul{
-			margin: 0;
-			padding: 0;
-			list-style-type: none;
-		}
-
-		.meta{
-			margin-bottom: 1em;
-			font-size: 1.3125em;
-			text-transform: lowercase;
-
-			.time{
-				margin-left: 1em;
+			.category{
+				border-bottom: 8px solid $red;		
 			}
 		}
 
-		.text{
-			margin-bottom: 1em;
-			font-size: 1.5em;
+		&.finances{
+			.inner{
+				box-shadow:0 5px 0 0 $purple;
+			}
+			.category{
+				border-bottom: 8px solid $purple;	
+			}
+		}
+
+		&.startup-spotlight{
+			.inner{
+				box-shadow:0 5px 0 0 $green;
+			}
+			.category{
+				border-bottom: 8px solid $green;	
+			}
+		}
+
+		.date{
+			position: absolute;
+			bottom: 40px;
+			left:30px;
+			@include mont;
+			font-size: 0.875em;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
+		}
+	}// article
+
+}// article-list
+
+#resource-list{
+
+	.section-heading{
+		margin-bottom: 1em;
+	}
+
+	.container{
+		margin-top: 3em;
+	}
+
+	.row{
+		margin:0 -20px;
+
+		@media screen and (max-width: 1000px){
+			margin:0 -10px;
+		}
+	}
+
+	article{
+		margin-bottom: 40px;
+		padding: 0 20px;
+
+		@media screen and (min-width: 1000px){
+			&:nth-child(2n+1){
+				clear: left;
+			}
+		}
+		@media screen and (max-width: 750px){
+			width: 100%;
+			font-size: 100%;
+		}
+
+		.inner{
+			@extend %gridstyle;
+			box-shadow:0 7px 0 0 $orange;
+		}
+
+		.title{
+			display: inline-block;
+			margin-top: 0;
+			padding-bottom: 3px;
 			line-height: 1.4;
-
-			p{
-				margin: 0;
-			}
-
-			a{
-				color: #orange;
-
-				&:hover{
-					color: darken($orange, 10%);
-				}
-			}
+			border-bottom: 8px solid $orange;
 		}
 
-		i{
-			color: #000;
-		}
-	}// #tweet
+		.excerpt{
+			font-size: 0.875em;
 
-}// #clubroom
+			p:first-child{
+				margin-top: 0;
+			}
+		}		
+	}// article
+
+}// #resources-list
+
+#tweet{
+	ul{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.meta{
+		margin-bottom: 1em;
+		font-size: 1.3125em;
+		text-transform: lowercase;
+
+		.time{
+			margin-left: 1em;
+		}
+	}
+
+	.text{
+		margin-bottom: 1em;
+		font-size: 1.5em;
+		line-height: 1.4;
+
+		p{
+			margin: 0;
+		}
+
+		a{
+			color: #orange;
+
+			&:hover{
+				color: darken($orange, 10%);
+			}
+		}
+	}
+
+	i{
+		color: #000;
+	}
+}// #tweet
+
+#pagination{
+	text-align: center;
+	
+	.page-numbers{
+		padding: 0 0.5em;
+		@include roboto;
+		
+		&.current{
+			padding-bottom: 5px;
+			border-bottom: 5px solid lighten(#032940, 10%);
+		}
+	}
+
+	.prev{
+		@extend .arrow-left;
+	}
+
+	.next{
+		@extend .arrow-right;
+	}
+}// #pagination
+
+/* ==========================================================================
+   SINGLE
+   ========================================================================== */
+
+#single{
+	background-color: #fbfbfe;
+
+	#single-header{
+		padding-top: 28%;
+		background-size: cover;
+		background-position: center;
+	}
+
+	#content{
+		max-width: 900px;
+		height:500px;
+		margin: -5em auto 3em auto;
+		padding: 3em;
+		background-color: #fff;
+		border: 1px solid #ebebea;
+	}
+
+}// #single
 
 /* ==========================================================================
    STARTUPS

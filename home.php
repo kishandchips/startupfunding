@@ -1,17 +1,12 @@
-<?php 
-/*
-	Template Name: Clubroom
-*/
-?>
 <?php get_header(); ?>
 
 	<div id="clubroom">
 		
-		<?php if(get_field('page_header')): ?>
+		<?php if(get_field('page_header', get_option('page_for_posts'))): ?>
 				<?php get_template_part('content','pageheader' );  ?>
 		<?php endif; ?>
 
-		<div id="filters" class="section">
+		<div id="article-filters" class="section">
 			<div class="container">
 			 <?php $categories = get_categories(); ?>
 		 
@@ -27,7 +22,7 @@
 			</div>
 		</div><!-- #filters -->
 		
-		<section id="articles" class="section">
+		<section id="article-list" class="section">
 			<div class="inner-container">
 				<h2 class="section-heading">
 					<?php _e("Latest Articles", 'startup'); ?>
@@ -35,12 +30,9 @@
 			</div>
 			
 			<div class="container">
-				<?php 
-					$query = new WP_Query( array('post_type' => 'post', 'posts_per_page' => 2,));
-				?>
-				<?php if($query->have_posts()): ?>
-					<div id="posts" class="row">
-						<?php while($query->have_posts()): $query->the_post(); ?>
+				<?php if(have_posts()): ?>
+					<div id="isotope" class="row">
+						<?php while(have_posts()): the_post(); ?>
 							<?php $category = get_the_category(); ?>
 
 							<article class="column col-1-3 <?php echo $category[0]->category_nicename ?>" data-filter=".<?php echo $category[0]->category_nicename ?>">
@@ -68,15 +60,16 @@
 				<?php endif; ?>
 				<?php wp_reset_query(); ?>
 
+				<?php if( wp_count_posts()->publish > get_option('posts_per_page')): ?>
 				<div class="more inner-container">
-					<?php $next = get_next_posts_link(); ?>
-					<?php echo $next; ?>
-					<a href="#" class="arrow"> View All</a>				
+					<a href="<?php bloginfo('url') ?>/?page_id=157" class="arrow-right">View All</a>				
 				</div>
+				<?php endif; ?>
+				
 			</div>
-		</section><!-- #articles -->
+		</section><!-- #article-list -->
 
-		<section id="resources" class="section alt-section">
+		<section id="resource-list" class="section alt-section">
 			<div class="inner-container">
 				<h2 class="section-heading">
 					<?php _e("Latest Resources", 'startup'); ?>
@@ -88,7 +81,8 @@
 
 			<div class="container">
 				<?php 
-					$resources = new WP_Query( array('post_type' => 'resources', 'posts_per_page' => 4,));
+					$posts_per_page = 4;
+					$resources = new WP_Query( array('post_type' => 'resources', 'posts_per_page' => $posts_per_page));
 				?>
 				<?php if($resources->have_posts()): ?>
 					<div class="row">
@@ -104,7 +98,7 @@
 									<div class="excerpt">
 										<?php the_excerpt(); ?>
 									</div>
-									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="arrow"> View Resource</a>
+									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="arrow-right"> View Resource</a>
 								</div>
 							</article>					
 							
@@ -116,8 +110,15 @@
 
 				<?php endif; ?>
 				<?php wp_reset_query(); ?>
+
+				<?php if( wp_count_posts('resources')->publish > $posts_per_page): ?>
+				<div class="more inner-container">
+					<a href="<?php echo get_post_type_archive_link( 'resources' ); ?>" class="arrow-right"> View All Resources</a>				
+				</div>
+				<?php endif; ?>
+
 			</div>
-		</section><!-- #resources -->
+		</section><!-- #resource-list -->
 
 		<section id="tweet" class="section">
 			<div class="inner-container">

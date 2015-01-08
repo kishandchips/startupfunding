@@ -52,23 +52,25 @@
 				    navSpeed: 1000,
 				    dots: true,
 				    autoHeight: true,
-				})
+				});
 			}
 		},// main.slider
 
 		isotope: {
-			element: $('#posts'),
+			element: $('#isotope'),
 
 			init: function(){
 				var element = main.isotope.element;
 				if(!element.length){return;}
+
+				var select = $('#article-filters select');
 
 				element.isotope({
 				  itemSelector: 'article',
 				  layoutMode: 'fitRows'
 				});
 
-				$('#filters select').on('change', function() {
+				select.on('change', function() {
 					var filterValue = $(this).val();
 				  element.isotope({ filter: filterValue });
 				});

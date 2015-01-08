@@ -197,19 +197,23 @@
 	&.black{
 		background-color: $black
 	}
-	&.orange{
+	&.orange,
+	&.news{
 		background-color: $orange
 	}
 	&.blue{
 		background-color: $blue
 	}
-	&.red{
+	&.red,
+	&.marketing{
 		background-color: $red
 	}
-	&.green{
+	&.green,
+	&.startup-spotlight{
 		background-color: $green
 	}
-	&.purple{
+	&.purple,
+	&.finances{
 		background-color: $purple
 	}
 	&.darkblue{
