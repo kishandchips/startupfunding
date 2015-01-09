@@ -47,6 +47,7 @@
 			margin: 20px 0 0 0;
 		}
 	}
+
 }// #filters
 
 // used for articles and resources styling
@@ -57,6 +58,7 @@
 }
 
 #article-list{
+
 	.row{
 		margin:0 -20px;
 
@@ -124,8 +126,7 @@
 			display: inline-block;
 
 			ul{
-				margin: 0;
-				padding: 0;
+				@extend %notalist;
 				list-style-type: none;
 			}
 
@@ -149,39 +150,39 @@
 
 		&.news{
 			.inner{
-				box-shadow:0 5px 0 0 $orange;
+				box-shadow:0 5px 0 0 $news;
 			}
 
 			.category{
-				border-bottom: 8px solid $orange;
+				border-bottom: 8px solid $news;
 			}
 		}
 
 		&.marketing{
 			.inner{
-				box-shadow:0 5px 0 0 $red;
+				box-shadow:0 5px 0 0 $marketing;
 			}
 
 			.category{
-				border-bottom: 8px solid $red;		
+				border-bottom: 8px solid $marketing;		
 			}
 		}
 
 		&.finances{
 			.inner{
-				box-shadow:0 5px 0 0 $purple;
+				box-shadow:0 5px 0 0 $finances;
 			}
 			.category{
-				border-bottom: 8px solid $purple;	
+				border-bottom: 8px solid $finances;	
 			}
 		}
 
 		&.startup-spotlight{
 			.inner{
-				box-shadow:0 5px 0 0 $green;
+				box-shadow:0 5px 0 0 $startup;
 			}
 			.category{
-				border-bottom: 8px solid $green;	
+				border-bottom: 8px solid $startup;	
 			}
 		}
 
@@ -255,9 +256,9 @@
 }// #resources-list
 
 #tweet{
+
 	ul{
-		margin: 0;
-		padding: 0;
+		@extend %notalist;
 		list-style-type: none;
 	}
 
@@ -314,6 +315,7 @@
 	.next{
 		@extend .arrow-right;
 	}
+
 }// #pagination
 
 /* ==========================================================================
@@ -329,14 +331,245 @@
 		background-position: center;
 	}
 
-	#content{
+	#post{
+		position: relative;
 		max-width: 900px;
-		height:500px;
-		margin: -5em auto 3em auto;
-		padding: 3em;
+		margin: -5em auto 0 auto;
 		background-color: #fff;
 		border: 1px solid #ebebea;
-	}
+
+		.social{
+			li{
+				display: inline-block;
+				margin-left: 5px;
+
+				i{
+					vertical-align: bottom;
+				}
+			}
+
+			&:last-child{
+				padding: 0 3em 3em;
+			}
+		}// .social
+
+		&.news{
+			.post-category{
+				background-color: $news;
+			}
+
+			#post-content{
+				blockquote, a{
+					color: $news;
+				}	
+			}
+		}
+
+		&.marketing{
+			.post-category{
+				background-color: $marketing;	
+			}
+
+			#post-content{
+				blockquote, a{
+					color: $marketing;
+				}	
+			}
+		}
+
+		&.startup-spotlight{
+			.post-category{
+				background-color: $startup;	
+			}
+
+			#post-content{
+				blockquote, a{
+					color: $startup;
+				}	
+			}
+		}
+
+		&.finances{
+			.post-category{
+				background-color: $finances;	
+			}
+
+			#post-content{
+				blockquote, a{
+					color: $finances;
+				}	
+			}
+		}
+
+	}	// #content
+
+	#post-header{
+		padding: 4em 3em 2em;
+		border-bottom: 1px solid #ebebea;
+		overflow: hidden;
+
+		.post-category{
+			position: absolute;
+			top: -1px;
+			left: 3em;
+			display: inline-block;
+			padding: 0.8em 2em;
+			color: #fff;
+			@include mont;
+			font-size: 0.875em;
+			text-transform: uppercase;
+			background-color: #69646F;
+		}
+
+		.post-title{
+			margin:0 150px 0.5em 0;
+			@include roboto;
+			font-size: 2.5em;
+			line-height: 1;
+		}
+
+		.post-date{
+			@include mont;
+			font-size: 0.875em;
+			text-transform: uppercase;
+		}
+
+		.social{
+			float: right;
+			width: 150px;
+			text-align: right;
+		}
+
+	}// #post-header
+
+	#post-content{
+		padding: 2em 3em 0 3em;
+
+		p{
+			font-size: 1.125em;
+		}
+
+		blockquote{
+			@include roboto;
+			font-size: 2.25em;
+		}
+	}// #post-content
+
+	#related{
+		max-width: 900px;
+		margin: 0 auto 2em auto;
+		padding: 2em 3em 3em;
+		background-color: #fff;
+		border-left: 1px solid #ebebea;
+		border-right: 1px solid #ebebea;
+		border-bottom: 1px solid #ebebea;
+
+		h3{
+			margin-top: 0;
+		}
+
+		article{
+			position: relative;
+
+			@media screen and (max-width: 650px){
+				width: 100%;
+				margin-bottom: 20px;
+
+				.related-image{
+					height: 200px;
+				}
+			}
+
+			@media screen and (max-width: 400px){
+				width: 100%;
+				margin-bottom: 20px;
+
+				.related-image{
+					height: 150px;
+				}
+			}
+
+			&.news{
+				.related-image{
+					border-bottom: 5px solid $news;
+				}
+				.related-category{
+					background-color: $news;
+				}
+				
+			}
+
+			&.marketing{
+				.related-image{
+					border-bottom: 5px solid $marketing;
+				}
+				.related-category{
+					background-color: $marketing;	
+				}
+				
+			}
+
+			&.startup-spotlight{
+				.related-image{
+					border-bottom: 5px solid $startup;
+				}
+				.related-category{
+					background-color: $startup;	
+				}
+				
+			}
+
+			&.finances{
+				.related-image{
+					border-bottom: 5px solid $finances;
+				}
+				.related-category{
+					background-color: $finances;	
+				}
+				
+			}
+
+			.inner{
+				background-color: #fcfcfc;
+				border: 1px solid #ebebea;
+			}
+		}// article
+
+		.related-image{
+			height: 135px;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.related-category{
+			position: absolute;
+			top: 10px;
+			left: -1em;
+			padding: 0.8em 4em 0.8em 2em;
+			color: #fff;
+			@include mont;
+			font-size: 0.625em;
+			text-transform: uppercase;
+			background-color: #69646F;
+		}
+
+		.meta{
+			padding: 1em;
+		}
+
+		.related-title{
+			min-height: 100px;
+			margin: 0;
+			font-size: 1em;
+		}
+
+		.related-time{
+			@include mont;
+			font-size: 0.625em; 
+			text-transform: uppercase;
+		}
+
+	}// #related
 
 }// #single
 

@@ -15,8 +15,7 @@
 	}
 
 	ul.menu{
-		margin: 0;
-		padding: 0;
+		@extend %notalist;
 		overflow: hidden;
 	}
 
@@ -195,29 +194,48 @@
 	}
 
 	&.black{
-		background-color: $black
+		background-color: $black;
 	}
-	&.orange,
-	&.news{
-		background-color: $orange
+
+	&.orange{
+		background-color: $orange;
 	}
+
 	&.blue{
-		background-color: $blue
+		background-color: $blue;
 	}
-	&.red,
-	&.marketing{
-		background-color: $red
+
+	&.red{
+		background-color: $red;
 	}
-	&.green,
-	&.startup-spotlight{
-		background-color: $green
+
+	&.green{
+		background-color: $green;
 	}
-	&.purple,
-	&.finances{
-		background-color: $purple
+
+	&.purple{
+		background-color: $purple;
 	}
+
 	&.darkblue{
-		background-color: $dblue
+		background-color: $dblue;
+	}
+
+	// CATEGORIES
+	&.news{
+		background-color: $news;
+	}
+
+	&.marketing{
+		background-color: $marketing;
+	}
+
+	&.finances{
+		background-color: $finances;	
+	}
+
+	&.startup-spotlight{
+		background-color: $startup;	
 	}
 
 	.button{
@@ -263,7 +281,47 @@
 
 }// .cta
 
+.social{
+	@extend %notalist;
 
+	a{
+		font-size: 1.5em;
+	}
+
+	i{
+		display: inline-block;
+		@include transition(all, .3s);
+	}
+
+	.icon-facebook{
+		color: #3b5998;
+
+		&:hover{
+			color: darken(#3b5998,10%);
+		}
+	}
+	.icon-twitter{
+		color: #2caae1;
+
+		&:hover{
+			color: darken(#2caae1,10%);
+		}
+	}
+	.icon-google{
+		color: #bb2f2c;
+
+		&:hover{
+			color: darken(#bb2f2c,10%);
+		}
+	}
+	.icon-linkedin{
+		color: #1c76aa;
+
+		&:hover{
+			color: darken(#1c76aa,10%);
+		}
+	}
+}// .social
 /* ==========================================================================
    SLIDER
    ========================================================================== */
@@ -362,8 +420,7 @@
 
 	.sitemap{
 		ul.menu{
-			margin: 0;
-			padding: 0;
+			@extend %notalist;
 			overflow: hidden;
 		}
 

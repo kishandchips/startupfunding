@@ -161,7 +161,7 @@ function my_sidebars() {
 // Posts per page
 function custom_posts_per_page($query){
 	if( $query->is_category() OR $query->is_search() OR is_post_type_archive('resources') ){
-		$query->set('posts_per_page', 1);
+		$query->set('posts_per_page', 15);
 	}
 
 	if( $query->is_search() ){

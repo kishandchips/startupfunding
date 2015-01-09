@@ -57,6 +57,12 @@ img {
 	@include translateY(-50%);
 }
 
+%notalist{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 /* MISC */
 
 hr{
@@ -73,6 +79,11 @@ $red : #c32026;
 $green : #8ad0c9;
 $purple : #838dc5;
 $dblue : #032940;
+
+$news: $orange;
+$finances: $purple;
+$marketing: $red;
+$startup: $green;
 
 /* ICON */
 
