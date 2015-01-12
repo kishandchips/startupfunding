@@ -1,3 +1,64 @@
+/* ==========================================================================
+   DEFAULT FORM ELEMENTS
+   ========================================================================== */
+
+input[type="text"],
+input[type="email"],
+textarea{
+	display: inline-block;
+	padding: 0.8em;
+	font-size: 1em;
+	background-color: transparent;
+	border: 1px solid #adadad;
+	@include border-radius(5px);
+	outline: none;
+}
+
+input[type="submit"],
+input[type="button"]{
+	@extend .button;
+	padding: 1em 2.5em;
+	color: #fff;
+	background-color: $orange;
+
+	&:hover{
+		background-color: darken($orange, 10%);
+	}
+}
+
+select{
+	@extend %greyinput;
+	background-image: url(../images/select-arrow.png);
+	background-position: 95% center;
+	background-repeat: no-repeat;
+}// select
+
+
+label{
+	display: inline-block;
+	margin-bottom: 0.5em;
+	@include source;
+	font-style: normal;
+
+	@media screen and (max-width: 700px){
+		font-size: 0.875em;
+	}
+}
+
+.half-input{
+	width: 45%;
+}
+.full-input{
+	width: 100%;
+}
+
+.half-input,
+.full-input{
+	@media screen and (max-width: 550px){
+		width: 100%;
+	}
+}
+
 %greyinput{
 	display: inline-block;
 	padding: 1em 3em 1em 1em;
@@ -17,13 +78,276 @@
     }
 }
 
-select{
-	@extend %greyinput;
-	background-image: url(../images/select-arrow.png);
-	background-position: 90% center;
-	background-repeat: no-repeat;
-}// select
+/* ==========================================================================
+   GFORM DEFAULT
+   ========================================================================== */
 
+.gform_wrapper{
+	max-width: 100% !important;
+	padding: 2.5em;
+	background-color: #fff;
+	border: 1px solid #ebebeb;
+
+	.gform_heading{
+		margin-bottom: 1.5em;
+
+		.gform_description{
+			color: $red;
+		}
+	}
+
+	.gform_body{
+
+		.gsection_title{
+			@extend .subheading;
+		}
+
+		.gform_fields{
+			@extend %notalist;
+			overflow: hidden;
+		}
+
+		.gfield{
+			float: left;
+			margin-bottom: 2em;
+
+			.medium{
+				width: 100%;
+			}
+			
+			.gfield_required{
+				color: $red;
+			}
+
+			&.gsection{
+				margin-bottom: 0;
+			}
+
+			// &.hr{
+			// 	width: 100%;
+			// 	margin-bottom: 1em;
+			// }
+
+			&.list-input,
+			table.gfield_list{
+				width: 100%;
+
+				tr:nth-child(even){
+					background-color: transparent;
+				}
+			}
+
+			&.list-input{
+
+				.gfield_description{
+					display: none;
+				}
+
+				@media screen and (max-width: 500px){
+					overflow: hidden;
+					overflow-x: scroll;
+
+					.gfield_list{
+						width: 700px;
+					}
+
+					.gfield_description{
+						display: block;
+						color: $red;							
+					}
+				
+				}
+
+			}// .list-input
+
+			.gfield_list{
+				thead{
+					th{
+						padding: 0;
+						font-weight: 400;
+
+						&:nth-child(2){
+							padding-left: 1em; 	 	
+						}
+					}
+				}
+
+				.gfield_list_cell{
+					padding: 1em;
+
+					&:first-child{
+						padding:0 1em 0 0 !important;
+					}
+					&:last-child{
+						padding: 0 0 0 1em;
+					}
+				}
+
+				.gfield_list_icons{
+					padding: 0 1em;
+					text-align: center;
+				}
+
+				input{
+					width: 100%;
+				}
+			}// .gfield_list
+
+			.gfield_radio{
+				@extend %notalist;
+
+				li{
+					display: inline-block;
+					margin-left: 2em;
+
+					input{
+						width: 25px;
+					}
+
+					&:first-child{
+						margin-left: 0;
+					}
+				}
+			}
+
+			&.gform_validation_container{
+				display: none;
+			}
+		}// .gfield
+	
+		.gform_page_footer{
+			.gform_previous_button,
+			.gform_next_button
+			{
+				margin-bottom: 1em;
+			}
+		}
+
+	}// .gform_body
+
+	// VALIDATION
+	.gfield_error{
+		.validation_message{
+			padding: 0.5em;
+			color: $red;
+		}
+	}
+	.validation_error{
+		padding: 0.5em;
+		margin-bottom: 1em;
+		color: #fff;
+		background-color: $red;
+	}
+
+}// .gform_wrapper
+
+#gforms_confirmation_message{
+	
+	.gform_confirmation_message{
+		padding: 1em;
+		background-color: #fff;
+		border: 1px solid #ebebeb;
+	}
+
+}// #gforms_confirmation_message
+
+
+/* ==========================================================================
+   CONTACT FORM
+   ========================================================================== */
+
+.contact-form{
+	.gform_body{
+		.gfield{
+			@media screen and (min-width: 551px){
+				&:nth-child(2n){
+					margin-left: 10%;
+				}
+			}
+		}		
+	}
+}// .contact-form
+
+/* ==========================================================================
+   APPLY FORM
+   ========================================================================== */
+
+.apply-form{
+	
+	.gform_wrapper{
+		position: relative;
+		padding: 3em 0 3em 0;
+	}
+
+	.gf_page_steps{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 1em 0;
+		text-align: center;
+		background-color: $orange;
+
+		.gf_step{
+			display: inline-block;
+			margin-left: 3em;
+			color: #dbdbdb;
+			@include mont;
+			font-size: 0.75em;
+			font-weight: 700;
+			text-transform: uppercase;
+
+			&:first-child{
+				margin-left: 0;
+			}
+
+			&.gf_step_active{
+				color: #fff;
+			}
+		}
+
+		.gf_step_number{
+			float:right;
+			margin-left: 5px;
+		}
+	}// .gf_page_steps
+
+	.gform_heading{
+		padding-bottom: 1em;
+		text-align: center;
+		border-bottom: 1px solid #ebebeb;
+		
+		.gform_title{
+			font-size: 2em;
+			margin-bottom: 0.5em;
+		}
+
+		.gform_description{
+			display: inline-block;
+			max-width: 500px;
+			margin: 0 auto;
+			color: #5D5D5D;
+			font-size: 1.125em;
+
+			@media screen and (max-width: 600px){
+				padding: 0 1em;
+			}
+		}
+	}// .gform_heading
+
+	.gform_body{
+		padding: 0 2.5em;
+
+		@media screen and (max-width: 600px){
+			padding: 0 1em;
+		}
+	}
+
+}// .apply-form
+
+/* ==========================================================================
+   SEARCH FORM
+   ========================================================================== */
 
 #searchform{
 	position: relative;

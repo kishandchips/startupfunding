@@ -71,6 +71,7 @@ function create_post_type() {
 		'supports' => array(
 			'title',
 			'editor',
+			'excerpt',
 			'thumbnail',
 			'page-attributes'
 			)

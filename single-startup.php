@@ -66,7 +66,17 @@
 
 		<?php endwhile;endif; ?>
 
-		<?php get_template_part('content','cta' );  ?>
+		<section class="cta section">
+			<div class="inner-container">
+				<h3>
+					<?php _e("Find out how we can help your startup", 'startup'); ?>
+				</h3>
+				
+				<a href="<?php bloginfo('url' ); ?>/contact-us" class="primary button">
+					<?php _e("Get in touch", 'startup'); ?>
+				</a>
+			</div>
+		</section><!-- .cta -->
 
 	</div><!-- #single-startup -->
 

@@ -62,7 +62,6 @@
 		}
 		@media screen and (max-width: 900px){
 			width: 100%;
-			text-align: center;
 
 			img{
 				max-width: 100%;
@@ -157,7 +156,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		padding-top: 21%;
+		padding-top: 20%;
 		display: none;
 		color: #fff;
 		font-size: 0.75em;
@@ -174,8 +173,6 @@
 
 		@media screen and (max-width: 750px){
 			display: inline-block;
-
-
 		}
 	}// #js-menu
 

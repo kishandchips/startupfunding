@@ -639,3 +639,101 @@
 	}
 
 }// #single-startup
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+
+#contact{
+	background-color: #fbfbfe;
+
+	.row{
+		margin: 0 -100px;
+	}
+
+	.column{
+		padding: 0 100px;
+	}
+
+	@media screen and (max-width: 1100px){
+		.col-1-2{
+			width: 100%;
+		}
+	}
+
+	#map{
+		position: relative;
+		max-width: 100%;
+		height: 0;
+		padding-top: 20%;
+		overflow: hidden;
+
+		@media screen and (max-width: 800px){
+			padding-top: 50%;
+		}
+
+		iframe{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.details{
+		margin-top: 3em;
+
+		ul{
+			@extend %notalist;
+			font-size: 1.125em;
+
+			li{
+				position: relative;
+				padding-left: 50px;
+				margin-bottom: 2em;
+
+				i{
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: $orange;
+					font-size: 1.5em;
+				}
+			}
+		}
+	}// .details
+
+}// #contact
+
+/* ==========================================================================
+   APPLY
+   ========================================================================== */
+
+#apply{
+	background-color: #fbfbfe;
+
+	.apply-form{
+		max-width: 700px;
+		margin: 0 auto;
+		padding: 3em 0;
+	}
+}
+
+#thanks{
+	.thank-you{
+		max-width: 700px;
+		margin: 3em auto 0;
+		padding: 0 0 3em 0;
+		border-top: 3em solid $orange;
+
+		.gform_wrapper{
+			padding-top: 0;
+		}
+
+		p{
+			max-width: 500px;
+			margin: 0 auto;
+		}
+	}
+}

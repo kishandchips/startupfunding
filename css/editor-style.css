@@ -54,7 +54,9 @@ img {
 /* MISC */
 hr {
   border-top: none;
-  border-color: #ebebeb; }
+  border-left: none;
+  border-right: none;
+  border-bottom-color: #ebebeb; }
 
 /* COLOURS */
 /* ICON */

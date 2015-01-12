@@ -30,9 +30,24 @@
 			</div>
 		</section><!-- .section -->
 		
-		<section id="startups-list" class="section">
-			
-		</section><!-- #startups-list -->
+		
+		<?php
+			$args = array(
+				'post_type'   => 'startup',
+				'post_status' => 'publish',
+				'posts_per_page'         => 99,
+			);
+		
+			$startup_query = new WP_Query( $args );
+		 ?>
+		 <?php if($startup_query->have_posts()): ?>
+		 	<section id="startups-list" class="section">
+		 		<?php while($startup_query->have_posts()): $startup_query->the_post(); ?>
+		 			<?php the_title(); ?>
+		 		<?php endwhile; ?>
+			</section><!-- #startups-list -->
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
 
 	</div><!-- #startups -->
 
