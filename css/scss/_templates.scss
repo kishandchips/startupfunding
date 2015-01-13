@@ -583,7 +583,7 @@
 
 	#events-list{
 
-		.row{
+		article{
 			border-bottom: 1px solid #ebebea;
 		}
 
@@ -596,7 +596,7 @@
 			}
 		}
 
-		.event{
+		.inner{
 			position: relative;
 			min-height: 200px;
 			max-width: 960px;
@@ -900,6 +900,7 @@
 	}// .mentor
 
 }// #mentors
+
 /* ==========================================================================
    CONTACT
    ========================================================================== */

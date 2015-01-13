@@ -1751,7 +1751,7 @@ select, #searchform #search-input {
   line-height: 1;
   border-top: 1px solid #ebebea;
   border-bottom: 1px solid #ebebea; }
-#events #events-list .row {
+#events #events-list article {
   border-bottom: 1px solid #ebebea; }
 #events #events-list a {
   display: block;
@@ -1761,7 +1761,7 @@ select, #searchform #search-input {
   transition: all, 0.3s; }
   #events #events-list a:hover {
     background-color: #fafafa; }
-#events #events-list .event {
+#events #events-list .inner {
   position: relative;
   min-height: 200px;
   max-width: 960px;

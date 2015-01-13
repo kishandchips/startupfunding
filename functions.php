@@ -90,7 +90,7 @@ function create_post_type() {
 		)
 	);
 
-	register_post_type( 'events',
+	register_post_type( 'event',
 		array(
 			'labels' => array(
 				'name' => __( 'Events' ),
@@ -245,7 +245,7 @@ function custom_posts_per_page($query){
  * Infinite Scroll
  */
 function custom_infinite_scroll_js() {
-	if (is_page_template('template-startups.php')): ?>
+	if (is_page_template('template-startups.php') OR is_page_template('template-events.php')):?>
 	
 		<script>
 			jQuery('#infinity').infinitescroll({

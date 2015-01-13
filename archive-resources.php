@@ -12,7 +12,7 @@
 					<?php get_search_form(); ?>					
 				</div>				
 			</div>
-		</div><!-- #filters -->
+		</div><!-- #article-filters -->
 
 
 		<section id="resource-list" class="section alt-section">
@@ -33,7 +33,7 @@
 							<article class="column col-1-2">
 								<div class="inner">
 									<h2 class="title">
-										<a href="<?php the_permalink(); ?>" title="<?php the_title ?>">
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 											<?php the_title(); ?>
 										</a>
 									</h2>

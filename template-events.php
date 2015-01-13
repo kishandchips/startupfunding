@@ -33,13 +33,16 @@
 
 			<?php endwhile; ?>
 		<?php endif; ?>
+		<?php wp_reset_query(); ?>
 
 		<?php
+			$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 			$args = array(
-				'post_type'   => 'events',
+				'post_type'   => 'event',
 				'post_status' => 'publish',
 				'posts_per_page' => 4,
-				'order' => 'ASC'
+				'paged' => $paged,
+				'order' => 'ASC',
 			);
 		
 			$event_query = new WP_Query( $args );
@@ -52,32 +55,39 @@
 			</section>
 
 			<section id="events-list">
-				
+				<div id="infinity">
 				<?php while($event_query->have_posts()): $event_query->the_post(); ?>
-				<div class="row">
-					<a href="<?php the_permalink(); ?>">
-						<div class="container">
-							<article class="event clearfix">
-								<div class="event-image">
-									<?php the_post_thumbnail();?>
-								</div>
-								<div class="event-details">
-									<h2 class="event-title">
-										<?php the_title(); ?>	
-									</h2>
-									<div class="event-meta">
-										<?php the_field('event_date'); ?> | <?php the_field('event_times', $post->id) ?>
+					
+					<article class="event">
+						<a href="<?php the_permalink(); ?>">
+							<div class="container">
+								<div class="inner clearfix">
+									<div class="event-image">
+										<?php the_post_thumbnail();?>
 									</div>
-									<div class="event-blurb">
-										<?php the_excerpt(); ?>
+									<div class="event-details">
+										<h2 class="event-title">
+											<?php the_title(); ?>	
+										</h2>
+										<div class="event-meta">
+											<?php the_field('event_date'); ?> | <?php the_field('event_times', $post->id) ?>
+										</div>
+										<div class="event-blurb">
+											<?php the_excerpt(); ?>
+										</div>
 									</div>
-								</div>
-								<i class="icon-arrow-right" style="color:<?php the_field('event_color'); ?>"></i>
-							</article>
-						</div>
-					</a>
+									<i class="icon-arrow-right" style="color:<?php the_field('event_color'); ?>"></i>
+								</div>								
+							</div>
+						</a>
+					</article>
+						
+				<?php endwhile; ?>						
 				</div>
-				<?php endwhile; ?>
+
+				<div class="infinity-nav">
+					<?php echo get_next_posts_link('SHOW MORE',$event_query->max_num_pages) ; ?> 
+				</div><!-- #pagination -->
 
 			</section><!-- #events-list -->
 		<?php endif; ?>

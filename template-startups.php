@@ -58,9 +58,11 @@
 			 			</article>
 			 		<?php endwhile; ?>		 			
 		 		</div>
+
 				<div class="infinity-nav">
 					<?php echo get_next_posts_link('SHOW MORE',$startup_query->max_num_pages) ; ?> 
-				</div><!-- #pagination -->		 		
+				</div><!-- #pagination -->
+				
 			</section><!-- #startups-list -->
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
