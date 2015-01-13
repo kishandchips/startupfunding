@@ -11,11 +11,11 @@
 			main.vars.body = $('body'),
 
 			this.header.init();
-			this.slider.init();
 			this.isotope.init();
-
+			this.slider.init();
+			
 			main.w.on('load', function(){
-
+				main.match.init();
 			});
 
 		},
@@ -37,25 +37,6 @@
 
 		},// main.header
 
-		slider: {
-			element: $('.slider'),
-
-			init: function(){
-				var element = main.slider.element;
-				if(!element.length){return;}
-
-				element.owlCarousel({
-				    items: 1,
-				    loop: true,
-				    nav: true,
-				    navText: [],
-				    navSpeed: 1000,
-				    dots: true,
-				    autoHeight: true,
-				});
-			}
-		},// main.slider
-
 		isotope: {
 			element: $('#isotope'),
 
@@ -75,7 +56,38 @@
 				  element.isotope({ filter: filterValue });
 				});
 			}
-		}// main.isotope
+		},// main.isotope
+
+		match: {
+			element: $('.match-elements'),
+
+			init: function(){
+				var element = main.match.element;
+				if(!element.length){return;}
+
+				$('.match-height').matchHeight();
+			}
+
+		},// main.match
+
+		slider: {
+			element: $('.slider'),
+
+			init: function(){
+				var element = main.slider.element;
+				if(!element.length){return;}
+
+				element.owlCarousel({
+				    items: 1,
+				    loop: true,
+				    nav: true,
+				    navText: [],
+				    navSpeed: 1000,
+				    dots: true,
+				    autoHeight: true,
+				});
+			}
+		},// main.slider
 
 	};//main
 

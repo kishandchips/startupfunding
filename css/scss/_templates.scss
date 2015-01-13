@@ -325,12 +325,6 @@
 #single{
 	background-color: #fbfbfe;
 
-	#single-header{
-		padding-top: 28%;
-		background-size: cover;
-		background-position: center;
-	}
-
 	#post{
 		position: relative;
 		max-width: 900px;
@@ -574,10 +568,133 @@
 }// #single
 
 /* ==========================================================================
+   EVENTS
+   ========================================================================== */
+
+#events{
+
+	.events-heading{
+		padding: 1em;
+		text-align: center;
+		line-height: 1;
+		border-top: 1px solid #ebebea;
+		border-bottom: 1px solid #ebebea;
+	}
+
+	#events-list{
+
+		.row{
+			border-bottom: 1px solid #ebebea;
+		}
+
+		a{
+			display: block;
+			@include transition(all, .3s);
+			
+			&:hover{
+				background-color: darken(#fff,2%);
+			}
+		}
+
+		.event{
+			position: relative;
+			min-height: 200px;
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 2em 40px 2em 100px;
+		}
+
+		.event-image{
+			float:left;
+			margin-left: -80px;
+
+			img{
+				@extend .valign;
+				left: 0;
+			}
+		}
+
+		.event-details{
+			position: relative;
+			float:left;
+			width: 100%;
+		}
+
+		.event-title{
+			margin: 0;
+			color: #04142b;
+		}
+
+		.event-meta{
+			color: #04142b;	
+			font-size: 1.125em;
+			font-weight: 600;
+		}
+
+		i{
+			@extend .valign;
+			width: 20px;
+			right: 0;
+		}
+
+	}// #events-list
+
+}// #events
+
+/* ==========================================================================
    STARTUPS
    ========================================================================== */
 
 #startups{
+	
+	#startups-list{
+		article{
+			margin-bottom: 20px;
+
+			@media screen and (max-width: 750px){
+				width: 50%;
+			}
+
+			@media screen and (max-width: 400px){
+				width: 100%;
+			}
+
+			.inner{
+				height: 150px;
+				border: 1px solid #ebebea;
+
+				a{
+					position: relative;
+					display: inline-block;
+					height: 100%;
+					width: 100%;
+					background-color: #fff;
+
+					&:after{
+						content: "";
+						position: absolute;
+						top:0;
+						left:0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(#fff, 0.5);
+						@include transition(all, .3s);
+					}
+
+					&:hover:after{
+						background-color: rgba(#fff, 0);
+					}
+				}
+
+				.valign{
+					width: 100%;
+					padding: 1em;
+					text-align: center;
+				}
+			}
+		}// article
+
+	}// #startups-list
 
 }// #startups
 
@@ -640,6 +757,149 @@
 
 }// #single-startup
 
+/* ==========================================================================
+   MENTORS
+   ========================================================================== */
+
+#mentors{
+
+	.accredited{
+		.subheading{
+			margin-bottom: 1.5em;
+			color: #fff;
+			font-size: 0.875em;
+		}
+	}
+
+	#mentors-list{
+		.row{
+			margin: 0 -20px;
+		}
+	}
+
+	.mentor{
+		padding: 20px;
+
+		@media screen and (min-width: 1001px){
+			&:nth-child(3n+1){
+				clear: left;
+			}			
+		}
+		@media screen and (max-width: 1000px){
+			width: 50%;
+
+			&:nth-child(2n+1){
+				clear: left;
+			}
+		}
+		@media screen and (max-width: 700px){
+			width: 100%;
+		}
+		@media screen and (max-width: 500px){
+			font-size: 80%;
+		}
+
+		.inner{
+			position: relative;
+			padding: 2.5em 2.5em 4em;
+			background-color: #fff;
+			border: 1px solid #ebebea;
+		}
+
+		.mentor-image{
+			margin-bottom: 1em;
+			text-align: center;
+		}
+
+		.mentor-title{
+			margin: 0;
+			color: #04142b;
+		}
+
+		.mentor-cat{
+			@extend .subheading;
+			font-size: 0.875em;
+		}
+
+		.mentor-cat-bar{
+			display: block;
+			overflow: hidden;
+
+			span{
+				float:left;
+				height: 9px;
+				width: 31px;
+				vertical-align: top;
+
+				&.beauty{
+					background-color: $beauty;
+				}
+				&.big-data{
+					background-color: $big-data;
+				}
+				&.cosmetics{
+					background-color: $cosmetics;
+				}
+				&.e-commerce{
+					background-color: $e-commerce;
+				}
+				&.fashion{
+					background-color: $fashion;
+				}
+				&.financial-services{
+					background-color: $financial-services;
+				}
+				&.lifestyle{
+					background-color: $lifestyle;
+				}
+				&.logistics{
+					background-color: $logistics;
+				}
+				&.manufacturing{
+					background-color: $manufacturing;
+				}
+				&.marketing{
+					background-color: $marketing;
+				}
+				&.retail{
+					background-color: $retail;
+				}
+				&.sales{
+					background-color: $sales;
+				}
+				&.social-media{
+					background-color: $social-media;
+				}
+				&.software{
+					background-color: $software;
+				}
+				&.technology{
+					background-color: $technology;
+				}				
+			}
+		}// .mentor-cat-bar
+
+		.mentor-bio{
+			@extend .med-font;
+		}
+
+		.mentor-networks{
+			position: absolute;
+			bottom: 0.5em;
+			left: 2.5em;
+
+			a{
+				font-size: 1.8em;
+			}
+
+			li{
+				display: inline-block;
+				margin-left: 5px;
+			}
+		}
+	}// .mentor
+
+}// #mentors
 /* ==========================================================================
    CONTACT
    ========================================================================== */

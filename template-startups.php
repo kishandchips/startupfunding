@@ -32,23 +32,41 @@
 		
 		
 		<?php
+			$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 			$args = array(
 				'post_type'   => 'startup',
 				'post_status' => 'publish',
-				'posts_per_page'         => 99,
+				'posts_per_page' => 12,
+				'paged' => $paged,
 			);
 		
 			$startup_query = new WP_Query( $args );
 		 ?>
 		 <?php if($startup_query->have_posts()): ?>
-		 	<section id="startups-list" class="section">
-		 		<?php while($startup_query->have_posts()): $startup_query->the_post(); ?>
-		 			<?php the_title(); ?>
-		 		<?php endwhile; ?>
+		 	<section id="startups-list" class="section alt-section">
+		 		<div id="infinity" class="container">
+			 		<?php while($startup_query->have_posts()): $startup_query->the_post(); ?>
+
+			 			<article class="column col-1-4">
+			 				<div class="inner">
+			 					<a href="<?php the_permalink(); ?>">
+			 						<div class="valign">
+			 							<?php the_post_thumbnail(); ?>
+			 						</div>
+			 					</a>
+			 				</div>
+			 			</article>
+			 		<?php endwhile; ?>		 			
+		 		</div>
+				<div class="infinity-nav">
+					<?php echo get_next_posts_link('SHOW MORE',$startup_query->max_num_pages) ; ?> 
+				</div><!-- #pagination -->		 		
 			</section><!-- #startups-list -->
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 
+
+
 	</div><!-- #startups -->
 
-<?php get_footer(); ?>
+<?php get_footer(); ?>	

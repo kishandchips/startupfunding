@@ -94,8 +94,7 @@ img[class*="align"],
 img[class*="wp-image-"],
 img[class*="attachment-"] {
   height: auto;
-  /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-  border: 1px solid #ddd; }
+  /* Make sure images with WordPress-added height and width attributes are scaled correctly */ }
 
 img.size-full,
 img.size-large,
@@ -202,6 +201,9 @@ a.arrow-left:before {
   @media screen and (max-width: 600px) {
     .page-heading {
       font-size: 2.25em; } }
+  @media screen and (max-width: 500px) {
+    .page-heading {
+      font-size: 2em; } }
 
 .section-heading {
   margin: 0;

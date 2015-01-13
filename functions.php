@@ -26,9 +26,11 @@ $template_directory_uri = get_template_directory_uri();
 	add_action( 'wp_enqueue_scripts', 'custom_styles', 30 );
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
 	add_action( 'init', 'create_post_type' );
-	add_action( 'init', 'startup_category' );
+	add_action( 'init', 'create_custom_categories' );
 	add_action( 'widgets_init', 'my_sidebars' );
 	add_action( 'pre_get_posts', 'custom_posts_per_page' );
+	add_action( 'wp_footer', 'custom_infinite_scroll_js', 100 );
+	add_action('acf/register_fields', 'my_register_fields');
 
 // Functions
 function custom_styles(){
@@ -41,42 +43,29 @@ function custom_styles(){
 function custom_scripts(){
 	global $template_directory_uri;
 
-	wp_localize_script( 'main', 'url', array(
-		'template' => $template_directory_uri,
-		'base' => site_url(),
-	));
-	
 	wp_enqueue_script('modernizr', $template_directory_uri . '/js/plugins/modernizr-2.6.1.min.js', array('jquery'), '', true);
 	wp_enqueue_script('slider', $template_directory_uri . '/js/plugins/owl.carousel.min.js', array('jquery'), '', true);
 	wp_enqueue_script('isotope', $template_directory_uri . '/js/plugins/isotope.min.js', array('jquery'), '', true);
+	wp_enqueue_script('infinite', $template_directory_uri . '/js/plugins/jquery.infinitescroll.min.js', array('jquery'), '', true);
+	wp_enqueue_script('matchheight', $template_directory_uri . '/js/plugins/jquery.matchHeight-min.js', array('jquery'), '', true);
 	wp_enqueue_script('main', $template_directory_uri . '/js/main.js', array('jquery'), '', true);
+
+	wp_localize_script( 'main', 'wordpress', array(
+		'template' => $template_directory_uri,
+		'base' => site_url(),
+	));
 }
 
-// Add Options Page
-	if( function_exists('acf_add_options_page') ) acf_add_options_page();
+// ACF
+if( function_exists('acf_add_options_page') ) acf_add_options_page();
+
+function my_register_fields()
+{
+    include_once('inc/acf-date_time_picker/acf-date_time_picker.php');
+}
 
 // Register Custom Post Types
 function create_post_type() {
-	register_post_type( 'startup',
-		array(
-			'labels' => array(
-				'name' => __( 'Startups' ),
-				'singular_name' => __( 'Startup' ),
-				'add_new' => __('Add Startup'),
-				'search_items' => __('Search Startups'),
-				'not_found' => __('No Startups Found')
-			),
-		'public' => true,
-		'hierarchical' => true,
-		'supports' => array(
-			'title',
-			'editor',
-			'excerpt',
-			'thumbnail',
-			'page-attributes'
-			)
-		)
-	);
 
 	register_post_type( 'resources',
 		array(
@@ -101,13 +90,77 @@ function create_post_type() {
 		)
 	);
 
+	register_post_type( 'events',
+		array(
+			'labels' => array(
+				'name' => __( 'Events' ),
+				'singular_name' => __( 'Event' ),
+				'add_new' => __('Add Event'),
+				'search_items' => __('Search Events'),
+				'not_found' => __('No Events Found')
+			),
+		'public' => true,
+		'menu_position' => 5,
+		'hierarchical' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'page-attributes'
+			)
+		)
+	);
+
+	register_post_type( 'mentors',
+		array(
+			'labels' => array(
+				'name' => __( 'Mentors' ),
+				'singular_name' => __( 'Mentor' ),
+				'add_new' => __('Add Mentor'),
+				'search_items' => __('Search Mentors'),
+				'not_found' => __('No Mentors Found')
+			),
+		'public' => true,
+		'hierarchical' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'page-attributes'
+			)
+		)
+	);
+
+	register_post_type( 'startup',
+		array(
+			'labels' => array(
+				'name' => __( 'Startups' ),
+				'singular_name' => __( 'Startup' ),
+				'add_new' => __('Add Startup'),
+				'search_items' => __('Search Startups'),
+				'not_found' => __('No Startups Found')
+			),
+		'public' => true,
+		'hierarchical' => true,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			'page-attributes'
+			)
+		)
+	);
+
 	flush_rewrite_rules( false );
 }
 
-// Register Taxonomy
-function startup_category() {
+// Register Taxonomies
+function create_custom_categories() {
 
-	$labels = array(
+	$startup_labels = array(
 		'name'					=> _x( 'Startup Categories', 'Taxonomy plural name', 'text-domain' ),
 		'singular_name'			=> _x( 'Startup Category', 'Taxonomy singular name', 'text-domain' ),
 		'search_items'			=> __( 'Search Startup Categories', 'text-domain' ),
@@ -124,21 +177,39 @@ function startup_category() {
 		'menu_name'				=> __( 'Startup Category', 'text-domain' ),
 	);
 
-	$args = array(
-		'labels'            => $labels,
-		'public'            => true,
-		'show_in_nav_menus' => true,
-		'show_admin_column' => true,
-		'hierarchical'      => false,
-		'show_tagcloud'     => true,
-		'show_ui'           => true,
-		'query_var'         => true,
-		'rewrite'           => true,
-		'query_var'         => true,
-		'capabilities'      => array(),
+	$mentors_labels = array(
+		'name'					=> _x( 'Mentor Categories', 'Taxonomy plural name', 'text-domain' ),
+		'singular_name'			=> _x( 'Mentor Category', 'Taxonomy singular name', 'text-domain' ),
+		'search_items'			=> __( 'Search Mentor Categories', 'text-domain' ),
+		'popular_items'			=> __( 'Popular Mentor Categories', 'text-domain' ),
+		'all_items'				=> __( 'All Mentor Categories', 'text-domain' ),
+		'parent_item'			=> __( 'Parent Mentor Category', 'text-domain' ),
+		'parent_item_colon'		=> __( 'Parent Mentor Category', 'text-domain' ),
+		'edit_item'				=> __( 'Edit Mentor Category', 'text-domain' ),
+		'update_item'			=> __( 'Update Mentor Category', 'text-domain' ),
+		'add_new_item'			=> __( 'Add New Mentor Category', 'text-domain' ),
+		'new_item_name'			=> __( 'New Mentor Category', 'text-domain' ),
+		'add_or_remove_items'	=> __( 'Add or remove Mentor Category', 'text-domain' ),
+		'choose_from_most_used'	=> __( 'Choose from most used Mentor Categories', 'text-domain' ),
+		'menu_name'				=> __( 'Mentor Category', 'text-domain' ),
 	);
 
-	register_taxonomy( 'startup-category', array( 'startup' ), $args );
+	$startup_args = array(
+		'labels'            => $startup_labels,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'query_var'         => true,
+	);
+
+	$mentors_args = array(
+		'labels'            => $mentors_labels,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'query_var'         => true,
+	);
+
+	register_taxonomy( 'startup-category', array( 'startup' ), $startup_args );
+	register_taxonomy( 'mentor-category', array( 'mentors' ), $mentors_args );
 }
 
 // Register Sidebars
@@ -168,4 +239,40 @@ function custom_posts_per_page($query){
 	if( $query->is_search() ){
 		$query->set('post_type', 'post');
 	}
+}
+
+/**
+ * Infinite Scroll
+ */
+function custom_infinite_scroll_js() {
+	if (is_page_template('template-startups.php')): ?>
+	
+		<script>
+			jQuery('#infinity').infinitescroll({
+				loading: {
+					img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
+					msgText: "<?php _e( 'Loading the next set of posts...', 'custom' ); ?>",
+					finishedMsg: "<?php _e( 'All posts loaded.', 'custom' ); ?>"
+				},
+				"nextSelector":".infinity-nav a",
+				"navSelector":".infinity-nav",
+				"itemSelector":"article",
+				"contentSelector":"#infinity"
+			});
+
+			jQuery('#infinity').infinitescroll('unbind');
+
+			jQuery('.infinity-nav a').on('click',function(e){
+				jQuery('#infinity').infinitescroll('retrieve');
+		    	return false;
+			})
+
+			jQuery(document).ajaxError(function(e,xhr,opt) {
+		    	if(xhr.status==404)
+		      	jQuery('.infinity-nav a').remove();
+		  	});
+		</script>
+
+	<?php
+	endif;
 }

@@ -87,6 +87,22 @@ $finances: $purple;
 $marketing: $red;
 $startup: $green;
 
+$beauty : #a3d39c;
+$big-data : #1e28b1;
+$cosmetics : #088e49;
+$e-commerce : #838dc5;
+$fashion : #3cb878;
+$financial-services : #03283f;
+$lifestyle : #c4df9b;
+$logistics : #f7d30d;
+$manufacturing : #fff568;
+$marketing : #ed1c24;
+$retail : #42198d;
+$sales : #f69679;
+$social-media : #f69679;
+$software : #2b7be8;
+$technology : #3dc5ec;
+
 /* ICON */
 
 %icon{
@@ -126,7 +142,6 @@ img[class*="align"],
 img[class*="wp-image-"],
 img[class*="attachment-"] {
     height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-    border: 1px solid #ddd;
 }
 img.size-full,
 img.size-large,
