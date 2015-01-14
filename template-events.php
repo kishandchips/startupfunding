@@ -21,8 +21,8 @@
 		</header><!-- .image-header -->
 
 			<section class="section">
-				<div class="inner-container">
-					<h2 class="section-heading">
+				<div class="inner-container center">
+					<h2 class="subtitle">
 						<?php the_field('section_heading'); ?>
 					</h2>
 					<div class="med-font">
@@ -48,10 +48,12 @@
 			$event_query = new WP_Query( $args );
 		?>
 		<?php if($event_query->have_posts()): ?>
-			<section class="events-heading section">
-				<h2 class="subheading">
-					<?php _e("Upcoming Events", 'startup'); ?>
-				</h2>
+			<section class="section-heading section center">
+				<div class="inner-container">
+					<h2 class="subheading">
+						<?php _e("Upcoming Events", 'startup'); ?>
+					</h2>					
+				</div>
 			</section>
 
 			<section id="events-list">
@@ -84,10 +86,12 @@
 						
 				<?php endwhile; ?>						
 				</div>
-
+				
+				<?php if(get_next_posts_link()): ?>
 				<div class="infinity-nav">
 					<?php echo get_next_posts_link('SHOW MORE',$event_query->max_num_pages) ; ?> 
 				</div><!-- #pagination -->
+				<?php endif; ?>
 
 			</section><!-- #events-list -->
 		<?php endif; ?>

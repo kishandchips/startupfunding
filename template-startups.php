@@ -16,7 +16,7 @@
 				<div class="slider">
 					<?php if(have_rows('slider_content')): while(have_rows('slider_content')): the_row(); ?>
 					<div class="slide">
-						<div class="inner-container">
+						<div class="inner-container center">
 							<h2 class="slide-title"><?php the_sub_field('slide_heading') ?></h2>
 							<?php the_sub_field('slide_description') ?>
 							<figure class="slide-image">

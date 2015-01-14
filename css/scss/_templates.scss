@@ -6,26 +6,161 @@
    ========================================================================== */
 
 #about{
+	overflow: hidden;
 
 	.page-header{
 		min-height: 400px;
 	}
+	
+	.row{
+		margin: 0 -5%;
+	}
+
+	.column{
+		padding:0 5%;
+
+		@media screen and (max-width: 700px){
+			margin-bottom: 1em;
+
+			&.col-1-2{
+				width: 100%;
+				
+			}
+
+			&.col-1-3{
+				width: 50%;
+
+				&:last-child{
+					width: 100%;
+				}
+			}
+		}
+
+		@media screen and (max-width: 550px){
+			&.col-1-3{
+				width: 100%;
+			}
+		}
+	}
 
 	.section{
+		border-bottom: 1px solid #ebebeb;
 
-		.subheading{
-			margin-bottom: 2em;
+		&.white{
+			background-color: #fff;
 		}
 
-		figure{
-			margin-top: 3em;
-			margin-bottom: -3em;
+		&.grey, 
+		&.about-list{
+			background-color: #fbfbfe;
 		}
 
-		&:nth-of-type(2n){
-			@extend .alt-section;
-		}	
-	}
+		&.bg{
+			background-size: cover;
+			background-position: center;
+		}
+	}// .section
+
+	.member{
+		.member-name{
+			margin: 0.3em 0;
+		}
+
+		.member-title{
+			margin: 0 0 0.7em;
+			@extend .subheading;
+			font-size: 0.825em;
+		}
+
+		.member-networks{
+			@extend %notalist;
+
+			li{
+				display: inline-block;
+				margin-left: 5px;
+
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+
+			a{
+				color: #dddddd;
+
+				&:hover{
+					color: darken(#dddddd,10%);
+				}
+			}
+		}// .member-networks
+
+	}// .member
+
+	.about-list{
+
+		ul{
+			@extend %notalist;
+	
+			li{
+				float: left;
+				width: 16.667%;
+				margin-bottom: 2em;
+
+				@media screen and (min-width:1451px){
+					&:nth-child(6n+1){
+						clear: left;
+					}
+				}
+				@media screen and (min-width:1051px) and (max-width:1450px){
+					width: 20%;
+
+					&:nth-child(5n+1){
+						clear: left;
+					}
+				}
+				@media screen and (min-width: 851px) and (max-width:1050px){
+					width: 25%;
+					font-size: 80%;
+
+					&:nth-child(4n+1){
+						clear: left;
+					}
+				}
+				@media screen and (min-width:601px) and (max-width:850px){
+					width: 33%;
+					font-size: 80%;
+
+					&:nth-child(3n+1){
+						clear: left;
+					}					
+				}
+				@media screen and (min-width:401px) and (max-width:600px){
+					width: 50%;
+					font-size: 80%;
+
+					&:nth-child(2n+1){
+						clear: left;
+					}					
+				}
+				@media screen and (max-width: 400px){
+					width: 100%;
+				}
+
+
+				i{
+					display: inline-block;
+					margin-right: 10px;
+					color: #fab857;
+					font-size: 1.5em;
+					vertical-align: middle;
+				}
+
+				span{
+					@extend .subheading;
+					font-size: 1em;
+				}
+			}// li		
+		}// ul
+	}// .about-list
 
 }// #about
 
@@ -568,78 +703,16 @@
 }// #single
 
 /* ==========================================================================
-   EVENTS
+   HOW WE HELP
    ========================================================================== */
 
-#events{
-
-	.events-heading{
-		padding: 1em;
-		text-align: center;
-		line-height: 1;
-		border-top: 1px solid #ebebea;
-		border-bottom: 1px solid #ebebea;
+#help{
+	.section{
+		&:nth-of-type(2n){
+			@extend .alt-section;
+		}
 	}
-
-	#events-list{
-
-		article{
-			border-bottom: 1px solid #ebebea;
-		}
-
-		a{
-			display: block;
-			@include transition(all, .3s);
-			
-			&:hover{
-				background-color: darken(#fff,2%);
-			}
-		}
-
-		.inner{
-			position: relative;
-			min-height: 200px;
-			max-width: 960px;
-			margin: 0 auto;
-			padding: 2em 40px 2em 100px;
-		}
-
-		.event-image{
-			float:left;
-			margin-left: -80px;
-
-			img{
-				@extend .valign;
-				left: 0;
-			}
-		}
-
-		.event-details{
-			position: relative;
-			float:left;
-			width: 100%;
-		}
-
-		.event-title{
-			margin: 0;
-			color: #04142b;
-		}
-
-		.event-meta{
-			color: #04142b;	
-			font-size: 1.125em;
-			font-weight: 600;
-		}
-
-		i{
-			@extend .valign;
-			width: 20px;
-			right: 0;
-		}
-
-	}// #events-list
-
-}// #events
+}// #help
 
 /* ==========================================================================
    STARTUPS
@@ -901,6 +974,199 @@
 
 }// #mentors
 
+
+/* ==========================================================================
+   EVENTS
+   ========================================================================== */
+
+#events{
+
+	#events-list{
+
+		article{
+			border-bottom: 1px solid #ebebea;
+		}
+
+		a{
+			display: block;
+			@include transition(all, .3s);
+			
+			&:hover{
+				background-color: darken(#fff,2%);
+			}
+		}
+
+		.inner{
+			position: relative;
+			min-height: 200px;
+			max-width: 960px;
+			margin: 0 auto;
+			padding: 2em 40px 2em 100px;
+		}
+
+		.event-image{
+			float:left;
+			margin-left: -80px;
+
+			img{
+				@extend .valign;
+				left: 0;
+			}
+		}
+
+		.event-details{
+			position: relative;
+			float:left;
+			width: 100%;
+		}
+
+		.event-title{
+			margin: 0;
+			color: #04142b;
+		}
+
+		.event-meta{
+			color: #04142b;	
+			font-size: 1.125em;
+			font-weight: 600;
+		}
+
+		i{
+			@extend .valign;
+			width: 20px;
+			right: 0;
+		}
+
+	}// #events-list
+
+}// #events
+
+/* ==========================================================================
+   SINGLE-EVENT
+   ========================================================================== */
+
+#single-event{
+
+	#event-info{
+		overflow: hidden;
+
+		.event-details{
+			position: relative;
+			padding-left: 80px;
+
+			@media screen and (max-width: 500px){
+				padding-left: 0;
+
+				.event-image{
+					display: none;
+				}
+			}
+
+			.event-image{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.event-title{
+				margin: 0 0 0.1em 0;
+				line-height: 1;
+			}
+
+			.event-meta{
+				p{
+					margin:0;
+					color: #04142b;
+					font-size: 1.1875em;
+					font-weight: 600;
+				}
+			}
+		}// .event-details
+
+		.event-description{
+			float: left;
+		}
+
+	}// #event-info
+	
+	#event-agenda{
+
+		h2{
+			margin:0 0 0.2em;
+			color: #04142b;
+			@include source;
+			font-size: 1.1875em;
+			font-weight: 600;
+		}
+		.content{
+			font-size: 1.1875em;
+
+			p:first-child{
+				margin-top: 0;
+			}
+		}
+
+		.speaker-list{
+			max-width: 600px;
+			
+			ul{
+				@extend %notalist;
+				overflow: hidden;
+
+				li{
+					float: left;
+					width: 50%;
+					margin-bottom: 0.5em;
+
+					@media screen and (max-width: 600px){
+						width: 100%;
+					}
+				}
+			}
+
+			h4{
+				margin: 0;
+				@include source;
+				font-size: 1em;
+			}
+		}
+
+	}// #event-detail
+
+}// #single-event
+
+/* ==========================================================================
+   APPLY
+   ========================================================================== */
+
+#apply{
+	background-color: #fbfbfe;
+
+	.apply-form{
+		max-width: 700px;
+		margin: 0 auto;
+		padding: 3em 0;
+	}
+}
+
+#thanks{
+	.thank-you{
+		max-width: 700px;
+		margin: 3em auto 0;
+		padding: 0 0 3em 0;
+		border-top: 3em solid $orange;
+
+		.gform_wrapper{
+			padding-top: 0;
+		}
+
+		p{
+			max-width: 500px;
+			margin: 0 auto;
+		}
+	}
+}
+
 /* ==========================================================================
    CONTACT
    ========================================================================== */
@@ -966,35 +1232,3 @@
 	}// .details
 
 }// #contact
-
-/* ==========================================================================
-   APPLY
-   ========================================================================== */
-
-#apply{
-	background-color: #fbfbfe;
-
-	.apply-form{
-		max-width: 700px;
-		margin: 0 auto;
-		padding: 3em 0;
-	}
-}
-
-#thanks{
-	.thank-you{
-		max-width: 700px;
-		margin: 3em auto 0;
-		padding: 0 0 3em 0;
-		border-top: 3em solid $orange;
-
-		.gform_wrapper{
-			padding-top: 0;
-		}
-
-		p{
-			max-width: 500px;
-			margin: 0 auto;
-		}
-	}
-}

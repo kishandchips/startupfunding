@@ -57,6 +57,10 @@ img {
 	@include translateY(-50%);
 }
 
+.center{
+    text-align: center; 
+}
+
 %notalist{
     margin: 0;
     padding: 0;

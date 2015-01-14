@@ -83,7 +83,7 @@ label{
    ========================================================================== */
 
 .gform_wrapper{
-	max-width: 100% !important;
+	max-width: 100%;
 	padding: 2.5em;
 	background-color: #fff;
 	border: 1px solid #ebebeb;
@@ -109,7 +109,7 @@ label{
 
 		.gfield{
 			float: left;
-			margin-bottom: 2em;
+			margin-bottom: 1.5em;
 
 			.medium{
 				width: 100%;
@@ -122,11 +122,6 @@ label{
 			&.gsection{
 				margin-bottom: 0;
 			}
-
-			// &.hr{
-			// 	width: 100%;
-			// 	margin-bottom: 1em;
-			// }
 
 			&.list-input,
 			table.gfield_list{
@@ -251,23 +246,23 @@ label{
 
 }// #gforms_confirmation_message
 
-
 /* ==========================================================================
-   CONTACT FORM
+   JOIN US
    ========================================================================== */
-
-.contact-form{
-	.gform_body{
-		.gfield{
-			@media screen and (min-width: 551px){
-				&:nth-child(2n){
-					margin-left: 10%;
-				}
-			}
-		}		
+.join-form{
+	.gform_wrapper{
+		max-width: 450px;
+		margin: 0 auto;
+		padding: 0;
+		background-color: transparent;
+		border: none;	
 	}
-}// .contact-form
 
+	input[type="text"],
+	input[type="email"]{
+		background-color: #fff;
+	}
+}
 /* ==========================================================================
    APPLY FORM
    ========================================================================== */
@@ -344,6 +339,22 @@ label{
 	}
 
 }// .apply-form
+
+/* ==========================================================================
+   CONTACT FORM
+   ========================================================================== */
+
+.contact-form{
+	.gform_body{
+		.gfield{
+			@media screen and (min-width: 551px){
+				&:nth-child(2n){
+					margin-left: 10%;
+				}
+			}
+		}		
+	}
+}// .contact-form
 
 /* ==========================================================================
    SEARCH FORM

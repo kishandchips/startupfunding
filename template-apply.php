@@ -11,7 +11,7 @@
 			<?php while(have_posts()): the_post(); ?>
 
 				<div class="apply-form">
-					<?php echo do_shortcode('[gravityform id=2 title=true description=true ajax=true ]' ); ?>						
+					<?php echo do_shortcode('[gravityform id=2 title=true description=true ajax=true ]' ); ?>
 				</div><!-- .apply-form -->
 
 			<?php endwhile; ?>

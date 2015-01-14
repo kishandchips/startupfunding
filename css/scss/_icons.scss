@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?x9mm29');
-	src:url('fonts/icomoon.eot?#iefixx9mm29') format('embedded-opentype'),
-		url('fonts/icomoon.woff?x9mm29') format('woff'),
-		url('fonts/icomoon.ttf?x9mm29') format('truetype'),
-		url('fonts/icomoon.svg?x9mm29#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?t08fig');
+	src:url('fonts/icomoon.eot?#iefixt08fig') format('embedded-opentype'),
+		url('fonts/icomoon.woff?t08fig') format('woff'),
+		url('fonts/icomoon.ttf?t08fig') format('truetype'),
+		url('fonts/icomoon.svg?t08fig#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -65,6 +65,10 @@
 
 .icon-menu:before {
 	content: "\e601";
+}
+
+.icon-tick:before {
+	content: "\e60c";
 }
 
 .icon-arrow-down:before {

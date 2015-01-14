@@ -256,18 +256,6 @@
 
 .section{
 	padding: 3em 0;
-
-	.inner-container{
-		width: 90%;
-		max-width: 700px;
-		margin: 0 auto;
-		text-align: center;
-
-		.button{
-			margin:1em 0;
-		}
-	}
-
 }// .section
 
 .alt-section{
@@ -278,6 +266,24 @@
 
 .dblue-section{
     background-color: $dblue;
+}
+
+.section-heading{
+	padding: 1em;
+	line-height: 1;
+	border-top: 1px solid #ebebea;
+	border-bottom: 1px solid #ebebea;
+}
+
+.inner-container{
+	width: 90%;
+	max-width: 700px;
+	margin: 0 auto;
+	@extend .clearfix;
+
+	.button{
+		margin:1em 0;
+	}
 }
 
 .cta{
@@ -504,13 +510,16 @@
 		}
 
 		.social{
-			font-size: 1.5em;
 
 			a{
 				margin-left: 0.5em;
 
-				&:hover{
-					color: darken(#fff,40%);
+				i{
+					color: #fff;
+
+					&:hover{
+						color: darken(#fff,10%);
+					}
 				}
 
 				&:first-child{

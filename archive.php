@@ -29,7 +29,7 @@
 		
 		<section id="article-list" class="section">
 			<div class="inner-container">
-				<h2 class="section-heading">
+				<h2 class="subtitle">
 					<?php _e("Latest Articles", 'startup'); ?>
 				</h2>				
 			</div>

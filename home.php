@@ -23,8 +23,8 @@
 		</div><!-- #filters -->
 		
 		<section id="article-list" class="section">
-			<div class="inner-container">
-				<h2 class="section-heading">
+			<div class="inner-container center">
+				<h2 class="subtitle">
 					<?php _e("Latest Articles", 'startup'); ?>
 				</h2>				
 			</div>
@@ -61,7 +61,7 @@
 				<?php wp_reset_query(); ?>
 
 				<?php if( wp_count_posts()->publish > get_option('posts_per_page')): ?>
-				<div class="more inner-container">
+				<div class="more inner-container center">
 					<a href="<?php bloginfo('url') ?>/?page_id=167" class="arrow-right">View All</a>				
 				</div>
 				<?php endif; ?>
@@ -70,8 +70,8 @@
 		</section><!-- #article-list -->
 
 		<section id="resource-list" class="section alt-section">
-			<div class="inner-container">
-				<h2 class="section-heading">
+			<div class="inner-container center">
+				<h2 class="subtitle">
 					<?php _e("Latest Resources", 'startup'); ?>
 				</h2>
 				<div class="med-font">
@@ -112,7 +112,7 @@
 				<?php wp_reset_query(); ?>
 
 				<?php if( wp_count_posts('resources')->publish > $posts_per_page): ?>
-				<div class="more inner-container">
+				<div class="more inner-container center">
 					<a href="<?php echo get_post_type_archive_link( 'resources' ); ?>" class="arrow-right"> View All Resources</a>				
 				</div>
 				<?php endif; ?>
@@ -121,7 +121,7 @@
 		</section><!-- #resource-list -->
 
 		<section id="tweet" class="section">
-			<div class="inner-container">
+			<div class="inner-container center">
 				<?php dynamic_sidebar('social' ); ?>					
 			</div>
 		</section><!-- #tweet -->

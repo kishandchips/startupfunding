@@ -51,6 +51,9 @@ img {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%); }
 
+.center {
+  text-align: center; }
+
 /* MISC */
 hr {
   border-top: none;
@@ -205,8 +208,8 @@ a.arrow-left:before {
     .page-heading {
       font-size: 2em; } }
 
-.section-heading {
-  margin: 0;
+.subtitle {
+  margin: 0 0 0.8em 0;
   color: #04142b;
   font-size: 2.25em;
   line-height: 1; }

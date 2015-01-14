@@ -5,7 +5,7 @@
 ?>
 <?php get_header(); ?>
 
-	<div id="about">
+	<div id="help">
 		
 		<?php if(get_field('page_header')): ?>
 				<?php get_template_part('content','pageheader' );  ?>
@@ -16,7 +16,7 @@
 
 			<section class="section">
 				
-				<div class="inner-container">
+				<div class="inner-container center">
 					<span class="number"><?php echo $i; ?></span>
 					<h2 class="subheading">
 						<?php the_sub_field('service_heading') ?>
@@ -42,6 +42,6 @@
 		
 		<?php get_template_part('content','cta' );  ?>
 
-	</div><!-- #about -->
+	</div><!-- #help -->
 
 <?php get_footer(); ?>

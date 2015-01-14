@@ -16,8 +16,8 @@
 
 
 		<section id="resource-list" class="section alt-section">
-			<div class="inner-container">
-				<h2 class="section-heading">
+			<div class="inner-container center">
+				<h2 class="subtitle">
 					<?php _e("Latest Resources", 'startup'); ?>
 				</h2>
 				<div class="med-font">

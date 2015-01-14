@@ -3,7 +3,7 @@
 	<div id="single-startup">
 		
 		<header class="section">
-			<div class="inner-container">
+			<div class="inner-container center">
 				<?php the_post_thumbnail(); ?>	
 			</div>
 		</header><!-- .section -->
@@ -11,8 +11,8 @@
 		<?php if(have_posts()): while(have_posts()): the_post(); ?>
 
 			<section class="section">
-				<div class="inner-container">
-					<h2 class="section-heading">
+				<div class="inner-container center">
+					<h2 class="subtitle">
 						<?php the_title(); ?>
 					</h2>
 					<?php the_content(); ?>			
@@ -36,22 +36,20 @@
 					</section>
 				<?php 
 					break;
-
 					case 'information':
 				?>
 					<section class="description section">
-						<div class="inner-container">
+						<div class="inner-container center">
 							<?php the_sub_field('text_content') ?>	
 						</div>
 					</section>
 				<?php 
 					break;
-
 					case 'video_content':
 				?>
 					
 					<section class="video section">
-						<div class="inner-container">
+						<div class="inner-container center">
 							<div class="embed-container">
 								<?php the_sub_field('video') ?>	
 							</div>							
@@ -67,7 +65,7 @@
 		<?php endwhile;endif; ?>
 
 		<section class="cta section">
-			<div class="inner-container">
+			<div class="inner-container center">
 				<h3>
 					<?php _e("Find out how we can help your startup", 'startup'); ?>
 				</h3>

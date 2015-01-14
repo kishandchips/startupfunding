@@ -15,8 +15,8 @@
 			<?php while(have_posts()): the_post(); ?>
 
 			<section class="section">
-				<div class="inner-container">
-					<h2 class="section-heading">
+				<div class="inner-container center">
+					<h2 class="subtitle">
 						<?php the_field('section_heading'); ?>
 					</h2>
 					<div class="med-font">
@@ -26,7 +26,7 @@
 			</section><!-- .section -->
 			
 			<section class="accredited section dblue-section">
-				<div class="inner-container">
+				<div class="inner-container center">
 					<h2 class="subheading">
 						<?php the_field('accredited_text') ?>
 					</h2>
