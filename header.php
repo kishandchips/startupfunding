@@ -9,6 +9,11 @@
 		<title><?php wp_title('-','true','right'); ?><?php bloginfo('name'); ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
+
+        <!--[if lt IE 9]>
+            <script src="/js/plugins/html5shiv.js"></script>
+        <![endif]-->
 
         <?php wp_head(); ?>
     </head>
@@ -20,7 +25,7 @@
         <header id="header">
             <div id="header-top">
                 <div class="container">
-                    <nav>
+                    <nav class="clearfix">
                         <?php 
                             $args = array('theme_location' => 'header_top', 'menu' => '', 'container' => '');
                             wp_nav_menu( $args ); 

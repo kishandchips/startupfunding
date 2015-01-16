@@ -1,7 +1,7 @@
 body{
 	color: #5d5d5d;
 	@include source;
-    font-size: 1.1875em;
+    font-size: 119%;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
@@ -86,6 +86,16 @@ a.arrow-left{
 	color: #04142b;
 	font-size: 1.9em;
 	line-height: 1;
+
+	@media screen and (max-width: 750px){
+		font-size: 1.37em;
+	}
+}
+
+.subtext{
+	@media screen and (max-width: 750px){
+		font-size: 0.85em;
+	}
 }
 
 .subheading{

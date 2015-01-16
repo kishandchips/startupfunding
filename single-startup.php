@@ -15,7 +15,9 @@
 					<h2 class="subtitle">
 						<?php the_title(); ?>
 					</h2>
-					<?php the_content(); ?>			
+					<div class="subtext">
+						<?php the_content(); ?>	
+					</div>	
 				</div>
 			</section><!-- .section -->
 			
@@ -40,7 +42,9 @@
 				?>
 					<section class="description section">
 						<div class="inner-container center">
-							<?php the_sub_field('text_content') ?>	
+							<div class="subtext">
+								<?php the_sub_field('text_content') ?>	
+							</div>
 						</div>
 					</section>
 				<?php 
@@ -66,7 +70,7 @@
 
 		<section class="cta section">
 			<div class="inner-container center">
-				<h3>
+				<h3 class="subtitle">
 					<?php _e("Find out how we can help your startup", 'startup'); ?>
 				</h3>
 				

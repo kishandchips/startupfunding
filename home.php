@@ -62,7 +62,7 @@
 
 				<?php if( wp_count_posts()->publish > get_option('posts_per_page')): ?>
 				<div class="more inner-container center">
-					<a href="<?php bloginfo('url') ?>/?page_id=167" class="arrow-right">View All</a>				
+					<a href="<?php bloginfo('url') ?>/clubroom-archive" class="arrow-right">View All</a>				
 				</div>
 				<?php endif; ?>
 				

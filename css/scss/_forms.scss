@@ -31,6 +31,12 @@ select{
 	background-image: url(../images/select-arrow.png);
 	background-position: 95% center;
 	background-repeat: no-repeat;
+	-webkit-appearance: none;  /*Removes default chrome and safari style*/
+    -moz-appearance: none;
+	
+	&::-ms-expand {
+    	display: none;
+	}
 }// select
 
 
@@ -71,7 +77,6 @@ label{
 	background-color: #ebebeb;
 	border: none;
 	@include border-radius(0);
-    @include appearance(none);
     outline: none;
     @include transition(all,.3s);
     
@@ -89,6 +94,10 @@ label{
 	padding: 2.5em;
 	background-color: #fff;
 	border: 1px solid #ebebeb;
+
+	@media screen and (max-width: 600px){
+		padding: 1em;
+	}
 
 	.gform_heading{
 		margin-bottom: 1.5em;
@@ -302,6 +311,10 @@ label{
 			&.gf_step_active{
 				color: #fff;
 			}
+
+			@media screen and (max-width: 450px){
+				margin-left: 1em;
+			}
 		}
 
 		.gf_step_number{
@@ -328,6 +341,7 @@ label{
 
 			@media screen and (max-width: 600px){
 				padding: 0 1em;
+				font-size: 0.85em;
 			}
 		}
 	}// .gform_heading

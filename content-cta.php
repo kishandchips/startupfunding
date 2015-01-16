@@ -1,6 +1,6 @@
 <section class="cta section">
 	<div class="inner-container center">
-		<h3>
+		<h3 class="subtitle">
 			<?php the_field('call_to_action_text'); ?>
 		</h3>
 

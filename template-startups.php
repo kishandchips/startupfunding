@@ -15,14 +15,16 @@
 			<div class="container">
 				<div class="slider">
 					<?php if(have_rows('slider_content')): while(have_rows('slider_content')): the_row(); ?>
+					<?php $startup = get_sub_field('startup'); ?>
 					<div class="slide">
 						<div class="inner-container center">
 							<h2 class="slide-title"><?php the_sub_field('slide_heading') ?></h2>
-							<?php the_sub_field('slide_description') ?>
+							<div class="subtext"><?php the_sub_field('slide_description') ?></div>	
 							<figure class="slide-image">
-								<?php $image = get_sub_field('slide_image') ?>
-								<img src="<?php echo $image['sizes']['slider'] ?>" alt=""> 
-							</figure>							
+								<a href="<?php echo get_the_permalink($startup->ID); ?>" title="<?php echo get_the_title($startup->ID ); ?>">
+									<?php echo get_the_post_thumbnail($startup->ID); ?>
+								</a> 
+							</figure>						
 						</div>
 					</div>
 					<?php endwhile;endif; ?>
@@ -51,7 +53,7 @@
 			 				<div class="inner">
 			 					<a href="<?php the_permalink(); ?>">
 			 						<div class="valign">
-			 							<?php the_post_thumbnail(); ?>
+			 							<?php the_post_thumbnail('custom-thumb'); ?>
 			 						</div>
 			 					</a>
 			 				</div>

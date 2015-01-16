@@ -21,7 +21,7 @@ $template_directory_uri = get_template_directory_uri();
 
 // Image sizes
 	add_image_size( 'slider', 600, 9999, false );
-
+	add_image_size( 'custom-thumb', 150, 150, false );
 // Add Actions
 	add_action( 'wp_enqueue_scripts', 'custom_styles', 30 );
 	add_action( 'wp_enqueue_scripts', 'custom_scripts', 30 );
@@ -31,6 +31,7 @@ $template_directory_uri = get_template_directory_uri();
 	add_action( 'pre_get_posts', 'custom_posts_per_page' );
 	add_action( 'wp_footer', 'custom_infinite_scroll_js', 100 );
 	add_action('acf/register_fields', 'my_register_fields');
+	add_action( 'admin_menu', 'my_remove_menu_pages',999 );
 
 // Functions
 function custom_styles(){
@@ -48,7 +49,7 @@ function custom_scripts(){
 	wp_enqueue_script('isotope', $template_directory_uri . '/js/plugins/isotope.min.js', array('jquery'), '', true);
 	wp_enqueue_script('infinite', $template_directory_uri . '/js/plugins/jquery.infinitescroll.min.js', array('jquery'), '', true);
 	wp_enqueue_script('matchheight', $template_directory_uri . '/js/plugins/jquery.matchHeight-min.js', array('jquery'), '', true);
-	wp_enqueue_script('main', $template_directory_uri . '/js/main.js', array('jquery'), '', true);
+	wp_enqueue_script('main', $template_directory_uri . '/js/min/main-min.js', array('jquery'), '', true);
 
 	wp_localize_script( 'main', 'wordpress', array(
 		'template' => $template_directory_uri,
@@ -232,9 +233,13 @@ function my_sidebars() {
 
 // Posts per page
 function custom_posts_per_page($query){
-	if( $query->is_category() OR $query->is_search() OR is_post_type_archive('resources') ){
+	if( $query->is_search() OR is_post_type_archive('resources') ){
 		$query->set('posts_per_page', 15);
 	}
+
+	 if($query->is_category() AND !is_single()){
+	 	$query->set('posts_per_page', 15);
+	 }
 
 	if( $query->is_search() ){
 		$query->set('post_type', 'post');
@@ -275,4 +280,21 @@ function custom_infinite_scroll_js() {
 
 	<?php
 	endif;
+}
+
+
+
+function my_remove_menu_pages() {
+    $admins = array( 
+        'spylefkaditis', 
+    );
+
+    $current_user = wp_get_current_user();
+
+    if( !in_array( $current_user->user_login, $admins ) ){
+	    remove_menu_page('edit-comments.php');
+	    remove_menu_page('plugins.php');
+	    remove_menu_page('tools.php');
+	    remove_menu_page('edit.php?post_type=acf-field-group');
+	}
 }

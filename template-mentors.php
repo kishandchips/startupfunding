@@ -19,7 +19,7 @@
 					<h2 class="subtitle">
 						<?php the_field('section_heading'); ?>
 					</h2>
-					<p><?php the_field('section_text'); ?></p>
+					<div class="subtext"><?php the_field('section_text'); ?></div>	
 				</div>
 			</section><!-- .section -->
 			
@@ -57,7 +57,7 @@
 						<article class="mentor column col-1-3">
 
 							<div class="mentor-image">
-								<?php the_post_thumbnail('thumbnail'); ?>	
+								<?php the_post_thumbnail('custom-thumb'); ?>	
 							</div>
 
 							<div class="inner match-height">

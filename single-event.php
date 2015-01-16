@@ -21,7 +21,7 @@
 						</div>
 					</div>
 
-					<div class="event-description">
+					<div class="event-description subtext">
 						<?php the_content(); ?>	
 					</div>			
 				</div>

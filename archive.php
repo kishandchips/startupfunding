@@ -28,7 +28,7 @@
 		</div><!-- #filters -->
 		
 		<section id="article-list" class="section">
-			<div class="inner-container">
+			<div class="inner-container center">
 				<h2 class="subtitle">
 					<?php _e("Latest Articles", 'startup'); ?>
 				</h2>				

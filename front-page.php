@@ -10,7 +10,7 @@
 					<h2 class="subtitle">
 						<?php _e("We work with companies like", 'startup'); ?>
 					</h2>				
-					<p><?php the_field('startup_text') ?></p>
+					<div class="subtext"><?php the_field('startup_text') ?></div>
 					<a href="<?php bloginfo('url' ); ?>/startups" class="primary button">
 						View all startups
 					</a>
@@ -41,7 +41,7 @@
 					<h2 class="subtitle">
 						<?php _e("Our Mentors", 'startup'); ?>
 					</h2>				
-					<p><?php the_field('mentors_textarea') ?></p>
+					<div class="subtext"><?php the_field('mentors_textarea') ?></div>
 					<a href="<?php bloginfo('url' ); ?>/mentors" class="primary button">
 						More about our mentors
 					</a>
@@ -54,7 +54,7 @@
 						
 						<div class="mentor column col-1-4">
 							<a href="<?php echo get_the_permalink($mentor->ID) ?>" title="<?php echo get_the_title($mentor->ID); ?>">
-								<?php echo get_the_post_thumbnail($mentor->ID); ?>
+								<?php echo get_the_post_thumbnail($mentor->ID,'custom-thumb'); ?>
 
 								<h3><?php echo get_the_title($mentor->ID); ?></h3>
 								<span class="mentor-cat">
@@ -97,7 +97,7 @@
 					<h2 class="subtitle">
 						<?php _e("Our Events", 'startup'); ?>
 					</h2>
-					<p><?php the_field('upcoming_events_text') ?></p>
+					<div class="subtext"><?php the_field('upcoming_events_text') ?></div>
 					<a href="<?php bloginfo('url' ); ?>/events" class="primary button">
 						View All events
 					</a>
@@ -147,7 +147,7 @@
 							<div class="inner-container">
 								<div class="quote-wrapper">
 									<?php $image = get_sub_field('quote_image') ?>
-									<img src="<?php echo $image['sizes']['slider'] ?>" alt="">
+									<img src="<?php echo $image['sizes']['custom-thumb'] ?>" alt="">
 
 									<div class="quote-details">
 										<h3 class="name"><?php the_sub_field('quote_name') ?></h3>
@@ -180,7 +180,7 @@
 					<h2 class="subtitle">
 						<?php _e("Clubroom", 'startup'); ?>
 					</h2>
-					<p><?php the_field('clubroom_text') ?></p>
+					<div class="subtext"><?php the_field('clubroom_text') ?></div>
 					<a href="<?php bloginfo('url' ); ?>/clubroom" class="primary button">
 						Go to clubroom
 					</a>
@@ -240,7 +240,7 @@
 			 					<a href="<?php the_sub_field('partner_link') ?>">
 			 						<div class="valign">
 			 							<?php $image = get_sub_field('partner_image'); ?>
-										<img src="<?php echo $image['url']; ?>" alt="">
+										<img src="<?php echo $image['sizes']['custom-thumb']; ?>" alt="">
 			 						</div>
 			 					</a>
 			 				</div>

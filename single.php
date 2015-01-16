@@ -2,7 +2,7 @@
 
 	<div id="single">
 		<?php $category = get_the_category(); ?>
-		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID) ); ?>
+		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'full' ); ?>
 		
 		<header class="image-header" style="background-image:url(<?php echo $image[0]; ?>)">
 		</header><!-- #single-header -->

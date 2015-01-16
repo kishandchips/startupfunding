@@ -21,8 +21,9 @@
 					<h2 class="subheading">
 						<?php the_sub_field('service_heading') ?>
 					</h2>
-					<p><?php the_sub_field('service_description') ?></p>
-
+					<div class="subtext">
+						<?php the_sub_field('service_description') ?>	
+					</div>
 					<?php if(get_sub_field('service_illustration')): ?>
 					<figure>
 						<?php $image = get_sub_field('service_illustration'); ?>

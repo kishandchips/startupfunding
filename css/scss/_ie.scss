@@ -1,0 +1,26 @@
+.lt-ie9{
+	body{
+		width: 1440px;
+		min-width: 1440px;
+	}
+
+	#header-main{
+		nav{
+			margin-top: 35px;
+			text-align: right;
+		}
+	}
+
+	#home{
+		.partners{
+			.valign{
+				padding: 0;
+			}
+		}
+	}
+
+	.valign{
+		position: relative;
+        top:0;
+	}
+}

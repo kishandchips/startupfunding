@@ -25,7 +25,9 @@
 					<h2 class="subtitle">
 						<?php the_field('section_heading'); ?>
 					</h2>
-					<p><?php the_field('section_text'); ?></p>
+					<div class="subtext">
+						<?php the_field('section_text'); ?>
+					</div>
 				</div>
 			</section><!-- .section -->
 
@@ -84,11 +86,11 @@
 						
 				<?php endwhile; ?>						
 				</div>
-				
-				<?php if(get_next_posts_link()): ?>
-				<div class="infinity-nav">
-					<?php echo get_next_posts_link('SHOW MORE',$event_query->max_num_pages) ; ?> 
-				</div><!-- #pagination -->
+				<?php $next_link = get_next_posts_link('SHOW MORE',$event_query->max_num_pages); ?>
+				<?php if($next_link): ?>
+					<div class="infinity-nav">
+	 					<?php echo $next_link; ?>
+					</div><!-- #pagination -->
 				<?php endif; ?>
 
 			</section><!-- #events-list -->

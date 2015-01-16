@@ -52,7 +52,7 @@
 									<div class="row">
 										<?php while(have_rows('column')): the_row(); ?>
 
-											<div class="<?php echo $class; ?>">
+											<div class="subtext <?php echo $class; ?>">
 												<?php the_sub_field('text_area'); ?>	
 											</div>
 
@@ -90,7 +90,7 @@
 							<h2 class="subtitle">
 								<?php the_sub_field('section_title'); ?>	
 							</h2>
-							<div class="content">
+							<div class="subtext">
 								<?php the_sub_field('section_text'); ?>
 							</div>
 						</div>
@@ -103,7 +103,7 @@
 									<?php if(get_sub_field('member_image')): ?>
 									<div class="member-image">
 										<?php $member_image = get_sub_field('member_image'); ?>
-										<img src="<?php echo $member_image['url']; ?>">
+										<img src="<?php echo $member_image['sizes']['custom-thumb']; ?>">
 									</div>
 									<?php endif; ?>
 
