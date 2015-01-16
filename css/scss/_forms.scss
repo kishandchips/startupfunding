@@ -6,7 +6,7 @@ input[type="text"],
 input[type="email"],
 textarea{
 	display: inline-block;
-	padding: 0.8em;
+	padding: 0.5em;
 	font-size: 1em;
 	background-color: transparent;
 	border: 1px solid #adadad;
@@ -17,7 +17,7 @@ textarea{
 input[type="submit"],
 input[type="button"]{
 	@extend .button;
-	padding: 1em 2.5em;
+	padding: 0.8em 4em;
 	color: #fff;
 	background-color: $orange;
 
@@ -38,6 +38,7 @@ label{
 	display: inline-block;
 	margin-bottom: 0.5em;
 	@include source;
+	font-size: 0.79em;
 	font-style: normal;
 
 	@media screen and (max-width: 700px){
@@ -64,6 +65,7 @@ label{
 	padding: 1em 3em 1em 1em;
 	color: #adadad;
 	@include mont;
+	font-size: 0.85em;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	background-color: #ebebeb;
@@ -159,6 +161,7 @@ label{
 				thead{
 					th{
 						padding: 0;
+						font-size: 0.79em;
 						font-weight: 400;
 
 						&:nth-child(2){
@@ -313,7 +316,7 @@ label{
 		border-bottom: 1px solid #ebebeb;
 		
 		.gform_title{
-			font-size: 2em;
+			font-size: 1.69em;
 			margin-bottom: 0.5em;
 		}
 
@@ -322,7 +325,6 @@ label{
 			max-width: 500px;
 			margin: 0 auto;
 			color: #5D5D5D;
-			font-size: 1.125em;
 
 			@media screen and (max-width: 600px){
 				padding: 0 1em;
@@ -345,6 +347,11 @@ label{
    ========================================================================== */
 
 .contact-form{
+	.gform_heading{
+		font-size: 0.79em;
+		margin-bottom: 0.5em;
+	}
+
 	.gform_body{
 		.gfield{
 			@media screen and (min-width: 551px){

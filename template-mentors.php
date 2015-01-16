@@ -19,9 +19,7 @@
 					<h2 class="subtitle">
 						<?php the_field('section_heading'); ?>
 					</h2>
-					<div class="med-font">
-						<?php the_field('section_text'); ?>
-					</div>
+					<p><?php the_field('section_text'); ?></p>
 				</div>
 			</section><!-- .section -->
 			

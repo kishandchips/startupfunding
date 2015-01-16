@@ -10,7 +10,7 @@
 		<?php if(get_field('page_header')): ?>
 				<?php get_template_part('content','pageheader' );  ?>
 		<?php endif; ?>
-		
+
 			<?php if(have_rows('sections')): while(have_rows('sections')): the_row(); ?>
 
 				<?php 
@@ -95,7 +95,7 @@
 							</div>
 						</div>
 
-						<div class="container">
+						<div class="members container">
 						<?php if(have_rows('members')): ?>
 
 							<?php while(have_rows('members')): the_row(); ?>

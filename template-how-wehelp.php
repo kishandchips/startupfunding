@@ -21,10 +21,7 @@
 					<h2 class="subheading">
 						<?php the_sub_field('service_heading') ?>
 					</h2>
-					
-					<div class="med-font">
-						<?php the_sub_field('service_description') ?>	
-					</div>
+					<p><?php the_sub_field('service_description') ?></p>
 
 					<?php if(get_sub_field('service_illustration')): ?>
 					<figure>

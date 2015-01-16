@@ -1,3 +1,7 @@
+#joebudden{
+	overflow: hidden;
+}// #joebudden
+
 /* ==========================================================================
    HEADER
    ========================================================================== */
@@ -5,9 +9,27 @@
 #header{
 
 	a{
+		position: relative;
 		color: #fff;
 		@include mont;
+		font-size: 0.85em;
 		text-transform: uppercase;
+
+		&:after{
+			content:"";
+			position: absolute;
+			bottom:-10px;
+			left: 50%;
+			width: 30px;
+			height: 8px;
+			margin-left: -15px;
+			background-color: transparent;
+			@include transition(all,.3s);
+		}
+
+		&:hover:after{
+			background-color: #fff;
+		}
 	}
 
 	nav{
@@ -37,13 +59,29 @@
 		float: right;
 	}
 
-	a{
+	li.menu-item{
 		margin-left: 2em;
+
+		@media screen and (max-width: 500px){
+			margin-left: 1em;
+		}
+
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+
+	a{
+		
 		font-size: 0.75em;
 		
 		@media screen and (max-width: 1200px){
 			font-size: 0.625em;
 		}
+		@media screen and (max-width: 500px){
+			font-size: 0.5em;
+		}
+
 	}
 
 }// #header-top
@@ -55,17 +93,12 @@
 	.logo{
 		float:left;
 
-		@media screen and (max-width: 1200px){
-			img{
-				width: 50%;
-			}
-		}
 		@media screen and (max-width: 900px){
-			width: 100%;
+			width: 150px;
+		}
 
-			img{
-				max-width: 100%;
-			}
+		a:after{
+			display: none;
 		}
 	}// .logo
 
@@ -78,19 +111,15 @@
 			margin-left: 200px;
 		}
 
-		@media screen and (max-width: 900px){
+		@media screen and (max-width: 750px){
 			position: relative;
 			top:0;
 			@include translateY(0);
+			max-height: 0;
 			width: 100%;
 			margin-left: 0;
-			padding-top: 1.5em;
-			text-align: center;
-		}
-
-		@media screen and (max-width: 750px){
-			max-height: 0;
 			padding-top: 0;
+			text-align: center;
 			@include transition(all, .3s);
 
 			#header.visible &{
@@ -98,23 +127,28 @@
 				padding-top: 1em;
 			}
 		}
+
 	}// nav
 
 	ul.menu{
 		position: relative;
-
-		@media screen and (max-width: 900px){
-			float: none;
-			display: inline-block;
-		}
+		display: inline-block;
+		vertical-align: middle;
 	}
 	
 	li.menu-item{
-		margin-top: 3px;
 		padding:0.8em 2em;
 
 		&:first-child{
 			padding-left: 0;
+		}
+
+		@media screen and (max-width: 1200px){
+			font-size: 0.75em;
+		}
+
+		@media screen and (max-width: 1200px){
+			padding: 0.8em 1em;
 		}
 
 		@media screen and (max-width: 750px){
@@ -127,19 +161,11 @@
 			}
 		}
 
-		a{
-			margin-top: 3px;
-
-			@media screen and (max-width: 1200px){
-				font-size: 0.75em;
-			}
-		}
-
 		&.nav-cta{
 			padding: 0;
 
 			a{
-				margin-top: 0;
+				margin-top: 3px;
 				padding:0.8em 2.2em;
 				border: 3px solid #fff;
 				@include border-radius(5px);
@@ -148,15 +174,23 @@
 					color: #262523;
 					background-color: #fff;
 				}
+
+				&:after{
+					display: none;
+				}
+		
+				@media screen and (max-width: 1200px){
+					margin-top: 0;
+				}
+
 			}	
 		}
 	}// .menu-item
 
 	#js-menu{
 		position: absolute;
-		top: 0;
+		top: 25px;
 		right: 0;
-		padding-top: 20%;
 		display: none;
 		color: #fff;
 		font-size: 0.75em;
@@ -255,7 +289,7 @@
 }// .page-header
 
 .section{
-	padding: 3em 0;
+	padding: 2.5em 0;
 }// .section
 
 .alt-section{
@@ -366,7 +400,6 @@
    ========================================================================== */
 
 .slider{
-	margin-top: 1em;
 
 	.slide-title{
 		margin: 0 0 0.5em 0;
@@ -375,6 +408,15 @@
 
 	.slide-image{
 		margin: 2em 0 1em 0;
+		text-align: center;
+
+		img{
+			display: inline-block;
+		}
+	}
+
+	.owl-item{
+		padding: 0 20px;
 	}
 
 	.owl-nav{
@@ -390,6 +432,10 @@
 
 			&:hover{
 				color: initial;
+			}
+
+			@media screen and (max-width: 500px){
+				font-size: 1.5em;
 			}
 		}
 		

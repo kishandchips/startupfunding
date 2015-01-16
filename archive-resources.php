@@ -14,15 +14,11 @@
 			</div>
 		</div><!-- #article-filters -->
 
-
 		<section id="resource-list" class="section alt-section">
 			<div class="inner-container center">
 				<h2 class="subtitle">
 					<?php _e("Latest Resources", 'startup'); ?>
 				</h2>
-				<div class="med-font">
-					<?php the_field('resources_header_description') ?>
-				</div>
 			</div>
 
 			<div class="container">

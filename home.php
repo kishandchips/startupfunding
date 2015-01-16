@@ -74,9 +74,7 @@
 				<h2 class="subtitle">
 					<?php _e("Latest Resources", 'startup'); ?>
 				</h2>
-				<div class="med-font">
-					<?php the_field('resources_header_description') ?>
-				</div>
+				<p><?php the_field('resources_header_description') ?></p>
 			</div>
 
 			<div class="container">
@@ -120,11 +118,13 @@
 			</div>
 		</section><!-- #resource-list -->
 
-		<section id="tweet" class="section">
-			<div class="inner-container center">
-				<?php dynamic_sidebar('social' ); ?>					
-			</div>
-		</section><!-- #tweet -->
+		<?php if(is_active_sidebar( 'social' )): ?> 
+			<section id="tweet" class="section">
+				<div class="inner-container center">
+					<?php dynamic_sidebar('social' ); ?>					
+				</div>
+			</section><!-- #tweet -->
+		<?php endif; ?>
 
 	</div><!-- #clubroom -->
 

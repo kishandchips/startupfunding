@@ -21,7 +21,7 @@
 							<h2 class="subheading">
 								<?php _e("Make an Enquiry", 'startup'); ?>	
 							</h2>
-							<p class="med-font"><?php the_field('contact_form_message'); ?></p>
+							<p><?php the_field('contact_form_message'); ?></p>
 							<div class="contact-form">
 								<?php echo do_shortcode('[gravityform id=1 title=false description=true ajax=true ]' ); ?>	
 							</div>
@@ -30,7 +30,7 @@
 							<h2 class="subheading">
 								<?php _e("Get in touch", 'startup'); ?>	
 							</h2>
-							<p class="med-font"><?php the_field('contact_form'); ?></p>
+							<p><?php the_field('contact_form'); ?></p>
 							<div class="details">
 								<ul>
 									<li>

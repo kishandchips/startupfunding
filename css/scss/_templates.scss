@@ -1,6 +1,248 @@
 /* ==========================================================================
    PAGE SPECIFIC STYLES
    ========================================================================== */
+
+/* ==========================================================================
+   FRONT PAGE
+   ========================================================================== */
+
+#home{
+
+	.startups{
+		.slide-image{
+			text-align: center;
+			img{
+				display: inline-block;
+			}
+		}
+	}// .startups
+
+	.mentors{
+		.container{
+			max-width: 1000px;
+			margin-top: 2em;
+		}
+
+		.mentor{
+			@media screen and (max-width: 750px){
+				width: 50%;
+				margin-bottom: 2em;
+			}
+			@media screen and (max-width: 450px){
+				width: 100%;
+				margin-bottom: 2em;
+
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+
+			a{
+				display: inline-block;
+
+				&:hover{
+					img{
+						@include opacity(0.8);
+					}
+				}
+			}
+
+			img{
+				@include transition(all, .3s);
+			}
+
+			h3{
+				margin: 0.5em 0 0;
+			}
+		}// .mentor
+
+		.mentor-cat{
+			color: #032940;
+			@include mont;
+			font-size: 0.79em;
+			line-height: 1.2;
+			text-transform: uppercase;
+		}
+	}// .mentors
+
+	.events{
+		&.section{
+			padding-bottom: 4em;
+		}
+
+		.events-wrapper{
+			position: relative;
+			margin-top: 2em;
+			overflow: hidden;
+		}
+
+		.events-image{
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 500px;
+			background-size: cover;
+			background-position: center;
+		}
+	
+		.events-list{
+			float: right;
+			width: 100%;
+			max-width: 500px;
+			background-color: #fff;
+
+			.subheading{
+				margin:0 0 1em;
+				padding: 0 2em;
+			}
+
+			ul{
+				@extend %notalist;
+			}
+
+			li{
+				border-bottom: 1px solid #ebebeb;
+
+				&:first-child{
+					border-top: 1px solid #ebebeb;
+				}
+
+				a{
+					position: relative;
+					display: inline-block;
+					width: 100%;
+					padding: 1em 2em;
+
+					&:hover{
+						background-color: darken(#fff,2%);
+					}
+
+					h3{
+						margin: 0;
+					}
+
+					p{
+						margin: 0;
+						color: #5d5d5d;
+						font-size: 1.1875em;
+					}
+
+					i{
+						@extend .valign;
+						right:1em;
+						width: 25px;
+						text-align: center;
+					}			
+				}// a
+			}// li
+
+		}// .events-list
+
+		@media screen and (max-width:750px){
+			.events-image{
+				display: none;
+			}
+
+			.events-list{
+				max-width: initial;
+			}
+		}
+
+	}// .events
+
+	.quotes{
+		&.section{
+			padding: 4em 0;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.quote-wrapper{
+			position: relative;
+			padding-left: 160px;
+
+			@media screen and (max-width: 750px){
+				padding-left: 0;
+				text-align: center;
+			}
+
+			img{
+				position: absolute;
+				top:0;
+				left: 0;
+
+				@media screen and (max-width: 750px){
+					position: relative;
+					display: inline-block;
+				}
+			}
+
+			.quote-details{
+				h3{
+					margin: 0;
+				}
+
+				.title,
+				.startup{
+					margin:0;
+					@include mont;
+					font-size: 0.825em;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}// .quotes
+
+	.partners{
+
+		.partner{
+			@media screen and (max-width: 1000px){
+				width: 50%;
+				margin-bottom: 20px;
+			}
+			@media screen and (max-width: 600px){
+				width: 100%;
+			}
+		}
+
+		.inner{
+			height: 150px;
+			border: 1px solid #ebebea;
+
+			a{
+				position: relative;
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				background-color: #fff;
+
+				&:after{
+					content: "";
+					position: absolute;
+					top:0;
+					left:0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(#fff, 0.5);
+					@include transition(all, .3s);
+				}
+
+				&:hover:after{
+					background-color: rgba(#fff, 0);
+				}
+			}
+
+			.valign{
+				width: 100%;
+				padding: 1em;
+				text-align: center;
+			}
+		}
+	}
+
+}// #home
+
 /* ==========================================================================
    ABOUT
    ========================================================================== */
@@ -60,6 +302,10 @@
 			background-position: center;
 		}
 	}// .section
+	
+	.members{
+		margin-top: 1em;
+	}
 
 	.member{
 		.member-name{
@@ -156,7 +402,7 @@
 
 				span{
 					@extend .subheading;
-					font-size: 1em;
+					font-size: 0.85em;
 				}
 			}// li		
 		}// ul
@@ -273,14 +519,14 @@
 				display: inline-block;
 				padding-bottom: 5px;
 				@include mont;
-				font-size: 0.875em;
+				font-size: 0.75em;
 				letter-spacing: 0.5px;
 				text-transform: uppercase;
 			}
 		}
 
 		.title{
-			font-size: 1.75em;
+			font-size: 1.5em;
 		}
 
 		&.news{
@@ -326,7 +572,7 @@
 			bottom: 40px;
 			left:30px;
 			@include mont;
-			font-size: 0.875em;
+			font-size: 0.75em;
 			letter-spacing: 0.5px;
 			text-transform: uppercase;
 		}
@@ -375,6 +621,7 @@
 			display: inline-block;
 			margin-top: 0;
 			padding-bottom: 3px;
+			font-size: 1.47em;
 			line-height: 1.4;
 			border-bottom: 8px solid $orange;
 		}
@@ -399,7 +646,7 @@
 
 	.meta{
 		margin-bottom: 1em;
-		font-size: 1.3125em;
+		font-size: 1.11em;
 		text-transform: lowercase;
 
 		.time{
@@ -409,7 +656,7 @@
 
 	.text{
 		margin-bottom: 1em;
-		font-size: 1.5em;
+		font-size: 1.26em;
 		line-height: 1.4;
 
 		p{
@@ -823,11 +1070,6 @@
 		}
 	}
 
-	p{
-		color: #5d5d5d;
-		font-size: 1.125em;
-	}
-
 }// #single-startup
 
 /* ==========================================================================
@@ -891,7 +1133,7 @@
 
 		.mentor-cat{
 			@extend .subheading;
-			font-size: 0.875em;
+			font-size: 0.79em;
 		}
 
 		.mentor-cat-bar{
@@ -952,17 +1194,13 @@
 			}
 		}// .mentor-cat-bar
 
-		.mentor-bio{
-			@extend .med-font;
-		}
-
 		.mentor-networks{
 			position: absolute;
 			bottom: 0.5em;
 			left: 2.5em;
 
 			a{
-				font-size: 1.8em;
+				font-size: 1.5em;
 			}
 
 			li{
@@ -1023,11 +1261,11 @@
 		.event-title{
 			margin: 0;
 			color: #04142b;
+			font-size: 1.58em;
 		}
 
 		.event-meta{
 			color: #04142b;	
-			font-size: 1.125em;
 			font-weight: 600;
 		}
 
@@ -1069,7 +1307,8 @@
 			}
 
 			.event-title{
-				margin: 0 0 0.1em 0;
+				margin: 0 0 0.5em 0;
+				font-size: 1.9em;
 				line-height: 1;
 			}
 
@@ -1077,7 +1316,6 @@
 				p{
 					margin:0;
 					color: #04142b;
-					font-size: 1.1875em;
 					font-weight: 600;
 				}
 			}
@@ -1095,12 +1333,10 @@
 			margin:0 0 0.2em;
 			color: #04142b;
 			@include source;
-			font-size: 1.1875em;
+			font-size: 1em;
 			font-weight: 600;
 		}
 		.content{
-			font-size: 1.1875em;
-
 			p:first-child{
 				margin-top: 0;
 			}
@@ -1213,7 +1449,6 @@
 
 		ul{
 			@extend %notalist;
-			font-size: 1.125em;
 
 			li{
 				position: relative;

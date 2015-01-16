@@ -77,15 +77,17 @@
 				var element = main.slider.element;
 				if(!element.length){return;}
 
-				element.owlCarousel({
-				    items: 1,
-				    loop: true,
-				    nav: true,
-				    navText: [],
-				    navSpeed: 1000,
-				    dots: true,
-				    autoHeight: true,
-				});
+				main.w.on('load',function(){
+					element.owlCarousel({
+					    items: 1,
+					    loop: true,
+					    nav: true,
+					    navText: [],
+					    navSpeed: 1000,
+					    dots: true,
+					    autoHeight: true,
+					});					
+				})
 			}
 		},// main.slider
 
