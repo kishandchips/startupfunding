@@ -11,21 +11,20 @@
 				<?php get_template_part('content','pageheader' );  ?>
 		<?php endif; ?>
 		
-		<?php if(have_rows('services')): $i = 1; ?> 
+		<?php if(have_rows('services')):?> 
 			<?php while(have_rows('services')): the_row(); ?>
 
 			<section class="section">
 				
 				<div class="inner-container center">
-					<span class="number"><?php echo $i; ?></span>
-					<h2 class="subheading">
+					<h2 class="subtitle">
 						<?php the_sub_field('service_heading') ?>
 					</h2>
 					<div class="subtext">
 						<?php the_sub_field('service_description') ?>	
 					</div>
 					<?php if(get_sub_field('service_illustration')): ?>
-					<figure>
+					<figure class="illustration">
 						<?php $image = get_sub_field('service_illustration'); ?>
 						<img src="<?php echo $image['url']; ?>" alt="">
 					</figure>
@@ -34,7 +33,6 @@
 
 			</section><!-- .section -->
 
-			<?php $i++ ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
 		

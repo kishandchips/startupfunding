@@ -61,28 +61,87 @@
 				<?php while($event_query->have_posts()): $event_query->the_post(); ?>
 					
 					<article class="event">
-						<a href="<?php the_permalink(); ?>">
-							<div class="container">
-								<div class="inner clearfix">
-									<div class="event-image">
-										<?php the_post_thumbnail();?>
+						<div class="event-excerpt">
+							<div class="inner-container">
+								<div class="event-image">
+									<?php the_post_thumbnail();?>
+								</div>
+								<div class="event-info">
+									<h2 class="event-title">
+										<?php the_title(); ?>	
+									</h2>
+									<div class="event-meta">
+										<?php the_field('event_date'); ?> | <?php the_field('event_times', $post->id) ?>
+										<?php the_field('event_location'); ?>
 									</div>
-									<div class="event-details">
-										<h2 class="event-title">
-											<?php the_title(); ?>	
-										</h2>
-										<div class="event-meta">
-											<?php the_field('event_date'); ?> | <?php the_field('event_times', $post->id) ?>
-										</div>
-										<div class="event-blurb">
-											<?php the_excerpt(); ?>
-										</div>
+									<div class="event-blurb">
+										<?php the_excerpt(); ?>
 									</div>
-									<i class="icon-arrow-right" style="color:<?php the_field('event_color'); ?>"></i>
-								</div>								
-							</div>
-						</a>
-					</article>
+								</div>
+								<i class="icon-arrow-right" style="color:<?php the_field('event_color'); ?>"></i>
+							</div>		
+						</div>
+						<div class="event-full">
+							<?php if(have_rows('content_section')):?>
+								<header class="section-heading">
+									<div class="inner-container">
+										<h2 class="subheading">
+											<?php _e("Agenda", 'startup'); ?>
+										</h2>					
+									</div>
+								</header>
+
+								<section class="event-details">
+	
+									<div class="inner-container">
+
+									<?php while(have_rows('content_section')): the_row(); ?>
+
+										<?php 
+											$layout = get_row_layout(); 
+											switch($layout):
+											case 'text_area':
+										?>
+
+										<h2><?php the_sub_field('title'); ?></h2>
+
+										<section class="content">
+											<?php the_sub_field('text_area'); ?>
+										</section>
+
+										<?php 
+											break;
+											case 'speakers_list':
+										?>
+
+										<h2><?php the_sub_field('title'); ?></h2>
+											
+										<section class="speaker-list content">
+											<?php if(have_rows('speakers')): ?>
+												<ul>
+													<?php while(have_rows('speakers')): the_row(); ?>
+														<li>
+															<h4><?php the_sub_field('speaker_name'); ?></h4>
+															<a href="<?php the_sub_field('speaker_website'); ?>" target="_blank"><?php the_sub_field('speaker_website'); ?></a>											
+														</li>
+													<?php endwhile; ?>									
+												</ul>
+											<?php endif; ?>
+										</section>
+
+										<?php 
+											break;
+											default:
+										?>
+
+									<?php endswitch; endwhile; ?>
+
+									</div>
+								</section><!-- .event-details -->
+							<?php endif; ?>
+
+						</div>
+					</article><!-- .event -->
 						
 				<?php endwhile; ?>						
 				</div>

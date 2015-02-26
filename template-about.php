@@ -64,6 +64,46 @@
 
 					</section><!-- .section -->
 
+				<?php
+					break;
+					case 'funds':
+
+					$columns_number = count(get_sub_field('column'));
+					if ($columns_number == 2){
+						$class = "column col-1-2";
+					} else if($columns_number == 3) {
+						$class = "column col-1-3";
+					} else {
+						$class = "column col-full";
+					}
+				?>
+
+					<section class="funds section match-elements">
+
+						<?php if(have_rows('column')): ?>
+							<?php if($columns_number == 1): ?>
+								<div class="inner-container">
+							<?php else: ?>
+								<div class="container">
+							<?php endif; ?>	
+
+									<div class="row">
+										<?php while(have_rows('column')): the_row(); ?>
+
+											<div class="subtext <?php echo $class; ?>">
+												<div class="subtext-inner match-height ">
+													<?php the_sub_field('text_area'); ?>
+												</div>
+											</div>
+
+										<?php endwhile; ?>									
+									</div>
+
+								</div>
+						<?php endif; ?>	
+
+					</section><!-- .section -->
+
 				<?php 
 					break;
 					case 'team':
@@ -73,6 +113,8 @@
 						$class = "column col-1-2";
 					} else if($members_number == 3) {
 						$class = "column col-1-3";
+					} else if($members_number == 4) {
+						$class = "column col-1-4";
 					} else {
 						$class = "column col-full";
 					}
@@ -110,20 +152,17 @@
 									<h3 class="member-name">
 										<?php the_sub_field('member_name'); ?>
 									</h3>
-									<p class="member-title">
-										<?php the_sub_field('member_title'); ?>
-									</p>
-									<?php if(have_rows('social_networks')): ?>
-										<ul class="member-networks">
-											<?php while(have_rows('social_networks')): the_row(); ?>
-												<li>
-													<a href="<?php the_sub_field('network_link') ?>" title="<?php the_sub_field('network');?>">
+									<div class="member-meta">
+										<span><?php the_sub_field('member_title'); ?></span>	
+									
+										<?php if(have_rows('social_networks')): ?>
+												<?php while(have_rows('social_networks')): the_row(); ?>
+													<a href="http://<?php the_sub_field('network_link') ?>" title="<?php the_sub_field('network');?>" target="_blank">
 														<i class="icon-<?php the_sub_field('network');?>"></i>
 													</a>	
-												</li>
-											<?php endwhile; ?>
-										</ul>
-									<?php endif; ?>
+												<?php endwhile; ?>
+										<?php endif; ?>
+									</div>
 								</div><!-- .member -->
 							<?php endwhile; ?> 
 

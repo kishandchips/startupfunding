@@ -6,7 +6,7 @@ input[type="text"],
 input[type="email"],
 textarea{
 	display: inline-block;
-	padding: 0.5em;
+	padding: 0.8em;
 	font-size: 1em;
 	background-color: transparent;
 	border: 1px solid #adadad;
@@ -19,7 +19,9 @@ input[type="button"]{
 	@extend .button;
 	padding: 0.8em 4em;
 	color: #fff;
+	font-size: 0.75em;
 	background-color: $orange;
+	outline: none;
 
 	&:hover{
 		background-color: darken($orange, 10%);
@@ -44,7 +46,7 @@ label{
 	display: inline-block;
 	margin-bottom: 0.5em;
 	@include source;
-	font-size: 0.79em;
+	font-size: 0.95em;
 	font-style: normal;
 
 	@media screen and (max-width: 700px){
@@ -111,6 +113,7 @@ label{
 
 		.gsection_title{
 			@extend .subheading;
+			font-size: 0.75em;
 		}
 
 		.gform_fields{
@@ -215,7 +218,13 @@ label{
 						margin-left: 0;
 					}
 				}
-			}
+			}// .gfield_radio
+
+			.gfield_select{
+				background-color: #fff;
+				border: 1px solid #adadad;
+				@include border-radius(5px);
+			}// .gfield_select
 
 			&.gform_validation_container{
 				display: none;
@@ -293,23 +302,25 @@ label{
 		width: 100%;
 		padding: 1em 0;
 		text-align: center;
-		background-color: $orange;
 
 		.gf_step{
 			display: inline-block;
 			margin-left: 3em;
-			color: #dbdbdb;
+			padding-bottom: 5px;
+			color: #ebebeb;
 			@include mont;
 			font-size: 0.75em;
 			font-weight: 700;
 			text-transform: uppercase;
+			border-bottom: 5px solid transparent;
 
 			&:first-child{
 				margin-left: 0;
 			}
 
 			&.gf_step_active{
-				color: #fff;
+				color: #032940;
+				border-bottom:5px solid $orange;
 			}
 
 			@media screen and (max-width: 450px){
@@ -323,35 +334,40 @@ label{
 		}
 	}// .gf_page_steps
 
-	.gform_heading{
-		padding-bottom: 1em;
-		text-align: center;
-		border-bottom: 1px solid #ebebeb;
+	// .gform_heading{
+	// 	padding-bottom: 1em;
+	// 	text-align: center;
+	// 	border-bottom: 1px solid #ebebeb;
 		
-		.gform_title{
-			font-size: 1.69em;
-			margin-bottom: 0.5em;
-		}
+	// 	.gform_title{
+	// 		font-size: 1.69em;
+	// 		margin-bottom: 0.5em;
+	// 	}
 
-		.gform_description{
-			display: inline-block;
-			max-width: 500px;
-			margin: 0 auto;
-			color: #5D5D5D;
+	// 	.gform_description{
+	// 		display: inline-block;
+	// 		max-width: 500px;
+	// 		margin: 0 auto;
+	// 		color: #5D5D5D;
 
-			@media screen and (max-width: 600px){
-				padding: 0 1em;
-				font-size: 0.85em;
-			}
-		}
-	}// .gform_heading
+	// 		@media screen and (max-width: 600px){
+	// 			padding: 0 1em;
+	// 			font-size: 0.85em;
+	// 		}
+	// 	}
+	// }
 
 	.gform_body{
+		margin-top: 2em;
 		padding: 0 2.5em;
 
 		@media screen and (max-width: 600px){
 			padding: 0 1em;
 		}
+	}
+
+	.gform_page_footer{
+		text-align: center;
 	}
 
 }// .apply-form

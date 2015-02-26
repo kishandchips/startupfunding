@@ -12,7 +12,11 @@
 
 				<div class="thank-you">
 					<div class="gform_wrapper">
-						<?php the_content(); ?>	
+						<?php the_content(); ?>
+
+						<div class="center">
+							<a href="<?php bloginfo('home'); ?>" title="Back to Homepage" class="button primary">Go to homepage</a>	
+						</div>
 					</div>
 				</div><!-- .thank-you -->
 

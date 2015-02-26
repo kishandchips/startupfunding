@@ -11,6 +11,7 @@
 			main.vars.body = $('body'),
 
 			this.header.init();
+			this.events.init();
 			this.isotope.init();
 			this.slider.init();
 			
@@ -36,6 +37,21 @@
 			},
 
 		},// main.header
+
+		events: {
+			element: $('#events'),
+
+			init: function(){
+				var element = main.events.element;
+				if(!element.length){return;}
+
+				var event = $('.event-excerpt');
+
+				event.on('click', function(){
+					$(this).parent('.event').toggleClass('expanded');
+				})
+			}
+		},// main.events
 
 		isotope: {
 			element: $('#isotope'),

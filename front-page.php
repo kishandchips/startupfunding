@@ -39,7 +39,7 @@
 			<section class="mentors section alt-section">
 				<div class="inner-container center">
 					<h2 class="subtitle">
-						<?php _e("Our Mentors", 'startup'); ?>
+						<?php _e("Our mentors", 'startup'); ?>
 					</h2>				
 					<div class="subtext"><?php the_field('mentors_textarea') ?></div>
 					<a href="<?php bloginfo('url' ); ?>/mentors" class="primary button">
@@ -95,7 +95,7 @@
 			<section class="events section">
 				<div class="inner-container center">
 					<h2 class="subtitle">
-						<?php _e("Our Events", 'startup'); ?>
+						<?php _e("Our events", 'startup'); ?>
 					</h2>
 					<div class="subtext"><?php the_field('upcoming_events_text') ?></div>
 					<a href="<?php bloginfo('url' ); ?>/events" class="primary button">
@@ -104,7 +104,8 @@
 				</div>
 				
 				<?php $image = get_field('upcoming_events_image') ?>
-				<div class="events-wrapper">
+				<div class="events-wrapper container">
+
 					<div class="events-image" style="background-image:url(<?php echo $image['url']; ?>)">
 					</div><!-- .events-image -->
 
@@ -116,7 +117,7 @@
 							<ul>
 								<?php while($event_query->have_posts()): $event_query->the_post(); ?>
 									<li>
-									<a href="<?php echo get_the_permalink($post->ID); ?>">
+									<a href="<?php echo get_the_permalink(28); ?>">
 										<h3>
 											<?php the_title(); ?>
 										</h3>
@@ -151,7 +152,6 @@
 
 									<div class="quote-details">
 										<h3 class="name"><?php the_sub_field('quote_name') ?></h3>
-										<p class="title"><?php the_sub_field('quote_title') ?></p>
 										<p class="startup"><?php the_sub_field('quote_startup') ?></p>
 										
 										<p><?php the_sub_field('quote_text') ?></p>
@@ -228,7 +228,7 @@
 			<section class="partners section alt-section">
 				<div class="inner-container">
 					<h2 class="subtitle center">
-						<?php _e("Our Partners", 'startup'); ?>
+						<?php _e("Our partners", 'startup'); ?>
 					</h2>				
 				</div>
 				<div class="inner-container">
@@ -252,7 +252,7 @@
 				
 				<p class="center">
 					<a href="<?php bloginfo('url'); ?>/contact" class="underline">
-						want to become a sponsor
+						Become a partner
 					</a>				
 				</p>
 			</section><!-- .partners .section -->			

@@ -69,54 +69,58 @@
 			</div>
 		</section><!-- #article-list -->
 
-		<section id="resource-list" class="section alt-section">
-			<div class="inner-container center">
-				<h2 class="subtitle">
-					<?php _e("Latest Resources", 'startup'); ?>
-				</h2>
-				<p><?php the_field('resources_header_description') ?></p>
-			</div>
+		<?php if(get_field('display_resources', get_option('page_for_posts'))): ?>
 
-			<div class="container">
-				<?php 
-					$posts_per_page = 4;
-					$resources = new WP_Query( array('post_type' => 'resources', 'posts_per_page' => $posts_per_page));
-				?>
-				<?php if($resources->have_posts()): ?>
-					<div class="row">
-						<?php while($resources->have_posts()): $resources->the_post(); ?>
-
-							<article class="column col-1-2">
-								<div class="inner">
-									<h2 class="title">
-										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-											<?php the_title(); ?>
-										</a>
-									</h2>
-									<div class="excerpt">
-										<?php the_excerpt(); ?>
-									</div>
-									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="arrow-right"> View Resource</a>
-								</div>
-							</article>					
-							
-						<?php endwhile; ?>
-					</div>	
-				<?php else: ?>						
-					
-					No Posts
-
-				<?php endif; ?>
-				<?php wp_reset_query(); ?>
-
-				<?php if( wp_count_posts('resources')->publish > $posts_per_page): ?>
-				<div class="more inner-container center">
-					<a href="<?php echo get_post_type_archive_link( 'resources' ); ?>" class="arrow-right"> View All Resources</a>				
+			<section id="resource-list" class="section alt-section">
+				<div class="inner-container center">
+					<h2 class="subtitle">
+						<?php _e("Latest Resources", 'startup'); ?>
+					</h2>
+					<p><?php the_field('resources_header_description', get_option('page_for_posts')) ?></p>
 				</div>
-				<?php endif; ?>
 
-			</div>
-		</section><!-- #resource-list -->
+				<div class="container">
+					<?php 
+						$posts_per_page = 4;
+						$resources = new WP_Query( array('post_type' => 'resources', 'posts_per_page' => $posts_per_page));
+					?>
+					<?php if($resources->have_posts()): ?>
+						<div class="row">
+							<?php while($resources->have_posts()): $resources->the_post(); ?>
+
+								<article class="column col-1-2">
+									<div class="inner">
+										<h2 class="title">
+											<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+												<?php the_title(); ?>
+											</a>
+										</h2>
+										<div class="excerpt">
+											<?php the_excerpt(); ?>
+										</div>
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="arrow-right"> View Resource</a>
+									</div>
+								</article>					
+								
+							<?php endwhile; ?>
+						</div>	
+					<?php else: ?>						
+						
+						No Posts
+
+					<?php endif; ?>
+					<?php wp_reset_query(); ?>
+
+					<?php if( wp_count_posts('resources')->publish > $posts_per_page): ?>
+					<div class="more inner-container center">
+						<a href="<?php echo get_post_type_archive_link( 'resources' ); ?>" class="arrow-right"> View All Resources</a>				
+					</div>
+					<?php endif; ?>
+
+				</div>
+			</section><!-- #resource-list -->
+
+		<?php endif; ?>
 
 		<?php if(is_active_sidebar( 'social' )): ?> 
 			<section id="tweet" class="section">

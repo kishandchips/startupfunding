@@ -14,16 +14,18 @@ if( is_home() ):
 	<?php endif; ?>
 
 		<div class="container">
-			<h1 class="page-heading">
-				<?php the_field('page_header_title', get_option('page_for_posts')) ?>
-			</h1>
+			<div class="page-header-inner">
+				<h1 class="page-heading">
+					<?php the_field('page_header_title', get_option('page_for_posts')) ?>
+				</h1>
 
-			<?php if(get_field('page_header_display_button', get_option('page_for_posts'))): ?>
-				<?php $link = get_field('page_header_button_link', get_option('page_for_posts')); ?>
-				<a href="<?php echo $link->guid ?>" class="invert button">
-					<?php the_field('page_header_button_text', get_option('page_for_posts')); ?>
-				</a>
-			<?php endif; ?>				
+				<?php if(get_field('page_header_display_button', get_option('page_for_posts'))): ?>
+					<?php $link = get_field('page_header_button_link', get_option('page_for_posts')); ?>
+					<a href="<?php echo $link->guid ?>" class="invert button">
+						<?php the_field('page_header_button_text', get_option('page_for_posts')); ?>
+					</a>
+				<?php endif; ?>					
+			</div>
 		</div>
 	</header>
 
@@ -38,9 +40,11 @@ if( is_home() ):
 		<header class="page-header <?php echo $category; ?>">
 
 		<div class="container">
-			<h1 class="page-heading">
-				<?php _e($categoryObj->name, 'startup'); ?>
-			</h1>			
+			<div class="page-header-inner">
+				<h1 class="page-heading">
+					<?php _e($categoryObj->name, 'startup'); ?>
+				</h1>				
+			</div>
 		</div>
 	</header>
 
@@ -54,16 +58,18 @@ if( is_home() ):
 	<?php endif; ?>
 
 		<div class="container">
-			<h1 class="page-heading">
-				<?php the_field('page_header_title') ?>
-			</h1>
+			<div class="page-header-inner">
+				<h1 class="page-heading">
+					<?php the_field('page_header_title') ?>
+				</h1>
 
-			<?php if(get_field('page_header_display_button')): ?>
-				<?php $link = get_field('page_header_button_link'); ?>
-				<a href="<?php echo $link->guid ?>" class="invert button">
-					<?php the_field('page_header_button_text'); ?>
-				</a>
-			<?php endif; ?>				
+				<?php if(get_field('page_header_display_button')): ?>
+					<?php $link = get_field('page_header_button_link'); ?>
+					<a href="<?php echo $link->guid ?>" class="invert button">
+						<?php the_field('page_header_button_text'); ?>
+					</a>
+				<?php endif; ?>					
+			</div>
 		</div>
 	</header>
 

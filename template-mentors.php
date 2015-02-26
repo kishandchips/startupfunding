@@ -56,17 +56,17 @@
 
 						<article class="mentor column col-1-3">
 
-							<div class="mentor-image">
-								<?php the_post_thumbnail('custom-thumb'); ?>	
-							</div>
-
 							<div class="inner match-height">
+								
+								<div class="mentor-image">
+									<?php the_post_thumbnail('custom-thumb'); ?>	
+								</div>
 
-								<h3 class="mentor-title">
+								<h3 class="mentor-title center">
 									<?php the_title(); ?>
 								</h3>
 
-								<span class="mentor-cat">
+								<div class="mentor-cat center">
 									<?php 
 									$terms = get_the_terms( $post->ID, 'mentor-category' );
 									$categories_array = array();
@@ -81,14 +81,14 @@
 									?>
 
 									<?php echo $categories; ?>
-									<span class="mentor-cat-bar">
+									<span class="mentor-cat-bar center">
 										<?php foreach ($categories_links_array as $cat_link): ?>
 											<span class="<?php echo $cat_link; ?>">
 												
 											</span>
 										<?php endforeach; ?>
 									</span>
-								</span>
+								</div>
 
 								<div class="mentor-bio">
 									<?php the_content(); ?>
