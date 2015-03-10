@@ -595,6 +595,7 @@ input[type="button"] {
   input.invert[type="button"] {
     padding: 0.8em 2.2em;
     color: #fff;
+    font-size: 1em;
     border: 3px solid #fff;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1493,6 +1494,9 @@ select, #searchform #search-input {
     @media screen and (max-width: 400px) {
       #footer .footer-info {
         width: 100%; } }
+  #footer .disclaimer {
+    font-size: 0.63em;
+    text-align: center; }
 
 /* ==========================================================================
    PAGE SPECIFIC STYLES
